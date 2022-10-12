@@ -16,13 +16,14 @@ class Car
 
     public Car(string brandParamater)
     {
+        Doors = new List<Door>();
+        for(int i = 0; i < 4; i++) {
+            Doors.Add(new Door(false));
+        }
+
         this.Brand = brandParamater;
         this.Tires = new List<Tire>();
-        this.Doors = new List<Door>();
-        Door door1 = new Door();
-        this.Doors.Add(door1);
-        this.Doors.Add(new Door());
-
+        
         for (int i = 0; i < 4; i++)
         {
             this.Tires.Add(new Tire(10));
