@@ -17,9 +17,8 @@
 
 
 // Suggestion to get started on user interaction in the console
-/*
 
-CarDealer dealer = new CarDealer(); //This class you need to create yourself!
+dealer dealer = new dealer(); //This class you need to create yourself!
 while(true){
 
     Console.WriteLine("Write an action [buy, sell, exit]");
@@ -38,5 +37,4 @@ while(true){
             return;
     }
 }
-*/
 #endregion
