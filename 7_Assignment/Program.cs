@@ -17,7 +17,6 @@
 
 
 // Suggestion to get started on user interaction in the console
-/*
 
 CarDealer dealer = new CarDealer(); //This class you need to create yourself!
 while(true){
@@ -38,5 +37,4 @@ while(true){
             return;
     }
 }
-*/
 #endregion
