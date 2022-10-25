@@ -18,7 +18,7 @@
 
 // Suggestion to get started on user interaction in the console
 
-dealer dealer = new dealer(); //This class you need to create yourself!
+Dealer dealer = new Dealer(); //This class you need to create yourself!
 while(true){
 
     Console.WriteLine("Write an action [buy, sell, exit]");

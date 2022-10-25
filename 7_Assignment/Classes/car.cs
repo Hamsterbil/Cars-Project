@@ -28,7 +28,7 @@ class Car {
         Console.WriteLine("Car constructed / Instantiated");
     }
 
-    public Car(string brandParamater, int amountOfDoors, int amountOfTires, int tireSize){
+    public Car(string brandParamater, int amountOfDoors, int amountOfTires, int tireSize, string rimMaterial){
         //Try to fill out the overloaded constructor
         Console.WriteLine("Car constructed / Instantiated");
     }
