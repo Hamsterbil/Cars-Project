@@ -27,7 +27,7 @@ while(true){
     switch (input)
     {
         case "buy":
-            //Car myNewCar = dealer.buy(...);
+            Car myNewCar = dealer.buy();
             break;
         case "sell":
             break;
