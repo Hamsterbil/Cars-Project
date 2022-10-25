@@ -42,10 +42,13 @@ class Car
         //Try to fill out the overloaded constructor
         Console.WriteLine("Car constructed / Instantiated");
     }
+        public Car(string brandParamater, int amountOfDoors, int amountOfTires, int tireSize, string rimMaterial, int engineSize, int enginePower)
 
-    #endregion
+            //Try to fill out the overloaded constructor
+            Console.WriteLine("Car constructed / Instantiated");
+        }
 
-    #region Methods
+        #endregion
 
     void Brake() {
         _speed = 0f;
@@ -78,3 +81,6 @@ class Car
 
     #endregion
 }
+
+        #endregion
+    }
