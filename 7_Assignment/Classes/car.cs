@@ -31,6 +31,7 @@ class Car
         Console.WriteLine("Car constructed / Instantiated");
     }
 
+<<<<<<< Updated upstream
     public Car(
         string brandParamater,
         int amountOfDoors,
@@ -39,6 +40,9 @@ class Car
         string rimMaterial
     )
     {
+=======
+    public Car(string brandParamater, int amountOfDoors, int amountOfTires, int tireSize, string rimMaterial, int engineSize, int enginePowerw){
+>>>>>>> Stashed changes
         //Try to fill out the overloaded constructor
         Console.WriteLine("Car constructed / Instantiated");
     }
