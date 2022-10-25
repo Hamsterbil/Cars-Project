@@ -32,21 +32,12 @@ class Car
         Console.WriteLine("Car constructed / Instantiated");
     }
 
-    public Car(
-        string brandParamater,
-        int amountOfDoors,
-        int amountOfTires,
-        int tireSize,
-        string rimMaterial
-    ) {
+    public Car(string brandParamater, int amountOfDoors, int amountOfTires, int tireSize, string rimMaterial, int engineSize, int enginePower) {
+
         //Try to fill out the overloaded constructor
         Console.WriteLine("Car constructed / Instantiated");
     }
-        public Car(string brandParamater, int amountOfDoors, int amountOfTires, int tireSize, string rimMaterial, int engineSize, int enginePower)
 
-            //Try to fill out the overloaded constructor
-            Console.WriteLine("Car constructed / Instantiated");
-        }
 
         #endregion
 
@@ -79,8 +70,5 @@ class Car
         doorParameter.Close();
     }
 
-    #endregion
 }
 
-        #endregion
-    }
