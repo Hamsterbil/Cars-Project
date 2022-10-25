@@ -9,29 +9,33 @@
 //Make use of atleast 5 classes.
 //These classes must have atleast 1 Field variable each
 //Classes are usually nouns (navneord, en/et foran), f.x.:
-//Car, CarDealer, Engine, Person
+
+//Car, CarDealer, Engine, Light, Tire, Door, Spoiler, Rim, Person, Credit
+
 //Make use of atleast 10 methods
 //5 of these methods must use paramaters
 //Methods usually describes verbs (udsagnsord, at/jeg foran)
-//Buy, Sell, Accelerate, Move
 
+//Buy, Sell, Exit, Accelerate, Move, Turbo, Get in, Get out, Brake, Change gear
 
 // Suggestion to get started on user interaction in the console
 
 Dealer dealer = new Dealer(); //This class you need to create yourself!
-while(true){
+while(true) {
 
     Console.WriteLine("Write an action [buy, sell, exit]");
     string input = Console.ReadLine();
 
-    switch (input)
-    {
+    switch (input) {
         case "buy":
-            Car myNewCar = dealer.buy();
+            Car myNewCar = dealer.buy(/*...*/);
             break;
         case "sell":
+            Car myNewCar = dealer.sell(/*...*/);
             break;
         case "exit":
+            Console.WriteLine("You exit the car dealer.");
+            Console.Readkey();
             return;
         default:
             return;

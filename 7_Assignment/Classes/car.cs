@@ -9,40 +9,36 @@ class Car
 
     public List<Door> Doors;
     public List<Tire> Tires;
+    public List<Light> Lights;
 
     #endregion
 
     #region Constructors
 
-    public Car(string brandParamater)
-    {
+    public Car(string brandParamater) {
         this.Brand = brandParamater;
         this.Tires = new List<Tire>();
         this.Doors = new List<Door>();
+        this.Lights = new List<Light>();
         Door door1 = new Door();
         this.Doors.Add(door1);
         this.Doors.Add(new Door());
 
-        for (int i = 0; i < 4; i++)
-        {
+        for (int i = 0; i < 4; i++) {
             this.Tires.Add(new Tire(10));
+            this.Lights.Add(new Light(10));
         }
         this.GetIn(this.Doors[0]);
         Console.WriteLine("Car constructed / Instantiated");
     }
 
-<<<<<<< Updated upstream
     public Car(
         string brandParamater,
         int amountOfDoors,
         int amountOfTires,
         int tireSize,
         string rimMaterial
-    )
-    {
-=======
-    public Car(string brandParamater, int amountOfDoors, int amountOfTires, int tireSize, string rimMaterial, int engineSize, int enginePowerw){
->>>>>>> Stashed changes
+    ) {
         //Try to fill out the overloaded constructor
         Console.WriteLine("Car constructed / Instantiated");
     }
@@ -51,31 +47,32 @@ class Car
 
     #region Methods
 
-    void Brake()
-    {
+    void Brake() {
         _speed = 0f;
     }
 
-    public void Accelerate(float forceParameter)
-    {
+    public void Accelerate(float forceParameter) {
         _speed = _speed + forceParameter;
     }
 
-    public void Turbo(float forceParameter)
-    {
+    public void Turbo(float forceParameter) {
         _speed = _speed * forceParameter;
     }
 
-    public int ChangeGear(int amount)
-    {
+    public int ChangeGear(int amount) {
         CurrentGear += amount;
         return CurrentGear;
     }
 
-    private void GetIn(Door doorParameter)
-    {
+    private void GetIn(Door doorParameter) {
         doorParameter.Open();
         Console.WriteLine("Got inside " + Brand);
+        doorParameter.Close();
+    }
+
+    private void GetOut(Door doorParameter) {
+        doorParameter.Open();
+        Console.WriteLine("Got out of " + Brand);
         doorParameter.Close();
     }
 

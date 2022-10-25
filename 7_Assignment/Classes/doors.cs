@@ -1,33 +1,25 @@
-class Door
-{
+class Door {
     private bool IsOpen;
 
-    public Door()
-    {
+    public Door() {
         this.IsOpen = false;
     }
 
-    public void Open()
-    {
-        if (this.IsOpen == true)
-        {
+    public void Open() {
+        if (this.IsOpen == true) {
             Console.WriteLine("Door already open");
         }
-        else
-        {
+        else {
             Console.WriteLine("Door opened");
             this.IsOpen = true;
         }
     }
 
-    public void Close()
-    {
-        if (this.IsOpen == false)
-        {
+    public void Close() {
+        if (this.IsOpen == false) {
             Console.WriteLine("Door already is close");
         }
-        else
-        {
+        else {
             Console.WriteLine("Door closed");
             this.IsOpen = false;
         }
