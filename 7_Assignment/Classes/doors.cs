@@ -1,3 +1,4 @@
-class doors {
- private bool isOpen;   
+class doors
+{
+    private bool isOpen;
 }
