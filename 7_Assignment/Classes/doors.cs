@@ -1,4 +1,4 @@
-class doors
+class Door
 {
     private bool IsOpen;
 

@@ -1,3 +1,3 @@
-class rims {
+class Rim {
     
 }

@@ -1,3 +1,3 @@
-class spoiler {
+class Spoiler {
     
 }

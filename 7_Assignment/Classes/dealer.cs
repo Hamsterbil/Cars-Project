@@ -1,3 +1,3 @@
-class dealer {
+class Dealer {
 
 }

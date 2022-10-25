@@ -1,4 +1,4 @@
-class car {
+class Car {
     #region Fields
     
     public string Brand = ""; 

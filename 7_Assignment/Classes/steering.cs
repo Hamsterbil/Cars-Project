@@ -1,3 +1,3 @@
-class steering {
+class Steer {
     
 }

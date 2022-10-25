@@ -1,4 +1,4 @@
-class tires
+class Tire
 {
     public int Size = 0;
 

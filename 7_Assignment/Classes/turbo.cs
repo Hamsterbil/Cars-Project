@@ -1,3 +1,3 @@
-class turbo {
+class Turbo {
     
 }

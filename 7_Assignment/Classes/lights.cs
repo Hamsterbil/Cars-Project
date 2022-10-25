@@ -1,7 +1,7 @@
-class lights {
+class Light {
     public int strength = 0;
 
-    public lights(int strength = 10)
+    public Light(int strength = 10)
     {
         this.strength = strength;
     }
