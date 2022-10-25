@@ -31,7 +31,7 @@ class Car
         Console.WriteLine("Car constructed / Instantiated");
     }
 
-<<<<<<< Updated upstream
+
     public Car(
         string brandParamater,
         int amountOfDoors,
@@ -40,44 +40,44 @@ class Car
         string rimMaterial
     )
     {
-=======
-    public Car(string brandParamater, int amountOfDoors, int amountOfTires, int tireSize, string rimMaterial, int engineSize, int enginePowerw){
->>>>>>> Stashed changes
-        //Try to fill out the overloaded constructor
-        Console.WriteLine("Car constructed / Instantiated");
+        public Car(string brandParamater, int amountOfDoors, int amountOfTires, int tireSize, string rimMaterial, int engineSize, int enginePower)
+        {
+
+            //Try to fill out the overloaded constructor
+            Console.WriteLine("Car constructed / Instantiated");
+        }
+
+        #endregion
+
+        #region Methods
+
+        void Brake()
+        {
+            _speed = 0f;
+        }
+
+        public void Accelerate(float forceParameter)
+        {
+            _speed = _speed + forceParameter;
+        }
+
+        public void Turbo(float forceParameter)
+        {
+            _speed = _speed * forceParameter;
+        }
+
+        public int ChangeGear(int amount)
+        {
+            CurrentGear += amount;
+            return CurrentGear;
+        }
+
+        private void GetIn(Door doorParameter)
+        {
+            doorParameter.Open();
+            Console.WriteLine("Got inside " + Brand);
+            doorParameter.Close();
+        }
+
+        #endregion
     }
-
-    #endregion
-
-    #region Methods
-
-    void Brake()
-    {
-        _speed = 0f;
-    }
-
-    public void Accelerate(float forceParameter)
-    {
-        _speed = _speed + forceParameter;
-    }
-
-    public void Turbo(float forceParameter)
-    {
-        _speed = _speed * forceParameter;
-    }
-
-    public int ChangeGear(int amount)
-    {
-        CurrentGear += amount;
-        return CurrentGear;
-    }
-
-    private void GetIn(Door doorParameter)
-    {
-        doorParameter.Open();
-        Console.WriteLine("Got inside " + Brand);
-        doorParameter.Close();
-    }
-
-    #endregion
-}
