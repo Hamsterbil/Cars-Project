@@ -1,6 +1,4 @@
-﻿#region Assignment
-
-//Create a CarDealer program
+﻿//Create a CarDealer program
 //Minimum requirements:
 //The CarDealer must have a list of available cars for sale
 //The CarDealer must have public Buy/Sell methods
@@ -20,8 +18,8 @@
 
 // Suggestion to get started on user interaction in the console
 
-Dealer dealer = new Dealer(); //This class you need to create yourself!
-while (true)
+
+/*while (true)
 {
 
     Console.WriteLine("Write an action [buy, sell, exit]");
@@ -30,10 +28,10 @@ while (true)
     switch (input)
     {
         case "buy":
-            Car myNewCar = dealer.buy(/*...*/);
+            Car myNewCar = dealer.buy();
             break;
         case "sell":
-            Car myNewCar = dealer.sell(/*...*/);
+            Car myNewCar = dealer.sell();
             break;
         case "exit":
             Console.WriteLine("You exit the car dealer.");
@@ -42,40 +40,26 @@ while (true)
         default:
             return;
     }
+}  */
+
+Dealer dealer = new Dealer(); //This class you need to create yourself!
+dealer.talkingDealer("Welcome to the Car Dealer.\n" +
+"Would you like to see our available cars?");
+
+string answer = Console.ReadLine();
+if (answer == "Yes" || answer == "yes") {
+    dealer.talkingDealer("");
+    Thread.Sleep(1000);
+    Console.Clear();
 }
-{
-    Console.WriteLine("Welcome to the Car Dealer.\n" +
-    "Would you like to see our available cars?");
 
-    string answer = Console.ReadLine();
-    if (answer == "Yes" || answer == "yes")
-    {
-        talkingDealer("");
-
-        Thread.Sleep(1000);
-        Console.Clear();
-        break;
-    }
-
-    else if (answer == "No" || answer == "no")
-    {
-        talkingDealer("");
-
-        Thread.Sleep(1000);
-        Console.Clear();
-        Console.WriteLine("Well screw you, man!");
-        return;
-    }
-
-    else
-    {
-        talkingDealer("");
-
-        Thread.Sleep(1000);
-        Console.Clear();
-        continue;
-    }
-
-
+else if (answer == "No" || answer == "no") {
+    dealer.talkingDealer("Well screw you, man!");
+    Thread.Sleep(1000);
+    return;
 }
-#endregion
+
+else {
+    Thread.Sleep(1000);
+    return;
+}
