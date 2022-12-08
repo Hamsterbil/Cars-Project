@@ -1,9 +1,9 @@
 class Engine {
+    Random RNG = new Random();
     public int Power = 0;
-    public int Size = 0;
-
-    public Engine(int power = 10, int size = 10) {
+    public Engine(int power) {
+        this.Power = RNG.Next(50, 100);
         this.Power = power;
-        this.Size = size;
+
     }
 }

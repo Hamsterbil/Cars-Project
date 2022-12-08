@@ -2,42 +2,62 @@ class Car
 {
     #region Fields
 
-    public string Brand = "";
+
     protected int CurrentGear = 0;
     private float _speed = 0f;
     internal int _revolutions = 0;
+    public string Brand;
+    public string Color;
+    public string Price;
+    public List<Door> Doors = new List<Door>();
+    public List<Tire> Tires = new List<Tire>();
+    public List<Light> Lights = new List<Light>();
+    public List<Engine> Engine = new List<Engine>();   
 
-    public List<Door> Doors;
-    public List<Tire> Tires;
-    public List<Light> Lights;
+
 
     #endregion
 
     #region Constructors
 
-    public Car(string brandParamater) {
-        this.Brand = brandParamater;
-        this.Tires = new List<Tire>();
-        this.Doors = new List<Door>();
-        this.Lights = new List<Light>();
-        Door door1 = new Door();
-        this.Doors.Add(door1);
-        this.Doors.Add(new Door());
+//Få det hele i Dealer. En bil har døre, lys, dæk. Ikke en liste. Det har dealeren.
+//Refactor koden.
+    public Car(string brandParamater, string colorParameter) {
+                this.Brand = brandParamater;
+                this.Color = colorParameter;
 
-        for (int i = 0; i < 4; i++) {
-            this.Tires.Add(new Tire(10));
-            this.Lights.Add(new Light(10));
+                int x = 0;
+                for (x = 0; x < 4; x++) {
+                this.Doors.Add(new Door());
+                this.Tires.Add(new Tire(10));
+                this.Lights.Add(new Light(10));
+            }
         }
-        this.GetIn(this.Doors[0]);
-        Console.WriteLine("Car constructed / Instantiated");
-    }
 
-    public Car(string brandParamater, int amountOfDoors, int amountOfTires, int tireSize, string rimMaterial, int engineSize, int enginePower) {
+    
 
-        //Try to fill out the overloaded constructor
-        Console.WriteLine("Car constructed / Instantiated");
-    }
+        //this.GetIn(this.Doors[0]);
+        //Console.WriteLine("Car constructed / Instantiated");
 
+
+
+
+    public Car(string brandParamater, string colorParameter,string price, int amountOfDoors, int amountOfTires, int tireSize, int enginePower) {
+                this.Brand = brandParamater;
+                this.Color = colorParameter;
+                this.Price = price;
+                this.Tires = new List<Tire>();
+                this.Doors = new List<Door>();
+                this.Lights = new List<Light>();
+                this.Engine.Add(new Engine(10));
+
+                int x = 0;
+                for (x = 0; x < 4; x++) {
+                this.Doors.Add(new Door());
+                this.Tires.Add(new Tire(10));
+                this.Lights.Add(new Light(10));
+            }
+        } 
 
         #endregion
 
@@ -70,5 +90,17 @@ class Car
         doorParameter.Close();
     }
 
-}
+    public void data() { 
+        Console.WriteLine(
+        "\nCar Brand: " + Brand +
+        "\nCar Color: " + Color +
+        "\nDoors: " + Doors.Count + 
+        "\nTires: " + Tires.Count +
+        "\nTire Size: " + Tires[0].Size +
+        "\nLight Power: " + Lights[0].strength +
+        "\nEngine Power: " + Engine[0].Power +
+        "\nPrice: $" + Price + "\n\n");
+        
+    }
 
+}

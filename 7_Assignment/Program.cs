@@ -43,8 +43,9 @@
 }  */
 
 Dealer dealer = new Dealer(); //This class you need to create yourself!
+Credit moeys = new Credit(100000);
 dealer.talkingDealer("Welcome to the Car Dealer.\n" +
-"Would you like to see our available cars?");
+"Would you like to see our available cars?\n");
 
 string answer = Console.ReadLine();
 if (answer == "Yes" || answer == "yes") {
@@ -63,3 +64,15 @@ else {
     Thread.Sleep(1000);
     return;
 }
+
+dealer.showCars(2, true);
+dealer.showCars(2, true);
+
+Console.WriteLine("You have: " + moeys.Amount + " moneys");
+
+dealer.talkingDealer("\nWould you like to purchase any of these cars?");
+
+dealer.talkingDealer("\nPlease select your car:\n");
+dealer.buy(int.Parse(Console.ReadLine()));
+
+Console.ReadKey();
