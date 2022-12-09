@@ -16,63 +16,35 @@
 
 //Buy, Sell, Exit, Accelerate, Move, Turbo, Get in, Get out, Brake, Change gear
 
-// Suggestion to get started on user interaction in the console
+Person player = new Person();
+Dealer dealer = new Dealer();
+
+dealer.talkingDealer("Welcome to our Car Dealership TM.");
+
+player.actions("Cars, Personal, Exit");
+
+// string answer = Console.ReadLine();
+// if (answer == "Yes" || answer == "yes")
+// {
+//     dealer.talkingDealer("");
+//     Thread.Sleep(1000);
+//     Console.Clear();
+// }
+
+// else if (answer == "No" || answer == "no")
+// {
+//     dealer.talkingDealer("Well screw you, man!");
+//     Thread.Sleep(1000);
+//     return;
+// }
+
+// else
+// {
+//     Thread.Sleep(1000);
+//     return;
+// }
 
 
-/*while (true)
-{
 
-    Console.WriteLine("Write an action [buy, sell, exit]");
-    string input = Console.ReadLine();
-
-    switch (input)
-    {
-        case "buy":
-            Car myNewCar = dealer.buy();
-            break;
-        case "sell":
-            Car myNewCar = dealer.sell();
-            break;
-        case "exit":
-            Console.WriteLine("You exit the car dealer.");
-            Console.Readkey();
-            return;
-        default:
-            return;
-    }
-}  */
-
-Dealer dealer = new Dealer(); //This class you need to create yourself!
-Credit moeys = new Credit(100000);
-dealer.talkingDealer("Welcome to the Car Dealer.\n" +
-"Would you like to see our available cars?\n");
-
-string answer = Console.ReadLine();
-if (answer == "Yes" || answer == "yes") {
-    dealer.talkingDealer("");
-    Thread.Sleep(1000);
-    Console.Clear();
-}
-
-else if (answer == "No" || answer == "no") {
-    dealer.talkingDealer("Well screw you, man!");
-    Thread.Sleep(1000);
-    return;
-}
-
-else {
-    Thread.Sleep(1000);
-    return;
-}
-
-dealer.showCars(2, true);
-dealer.showCars(2, true);
-
-Console.WriteLine("You have: " + moeys.Amount + " moneys");
-
-dealer.talkingDealer("\nWould you like to purchase any of these cars?");
-
-dealer.talkingDealer("\nPlease select your car:\n");
-dealer.buy(int.Parse(Console.ReadLine()));
 
 Console.ReadKey();

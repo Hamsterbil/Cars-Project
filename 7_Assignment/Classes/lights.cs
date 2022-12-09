@@ -1,7 +1,9 @@
-class Light {
-    public int strength = 0;
+class Light
+{
+    public int Strength = 0;
 
-    public Light(int strength) {
-        this.strength = strength;
+    public Light(int strength)
+    {
+        this.Strength = strength;
     }
 }
