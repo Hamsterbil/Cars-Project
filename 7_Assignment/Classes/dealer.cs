@@ -1,8 +1,7 @@
-public class Dealer
+class Dealer
 {
     List<Car> randomCars = new List<Car>();
     List<Car> personalCars = new List<Car>();
-    Person player = new Person();
     int price;
 
     public void showCars(int i, bool showList)
@@ -59,7 +58,7 @@ public class Dealer
             personalCars[0].data();
             Console.WriteLine("Your balance is now: $" + money.Amount);
             talkingDealer("\nThank you for your purchase. Would you like to take it for a test drive, or buy something else?\n");
-            player.actions("Cars, Personal, Getin, Exit");
+            //player.actions("Cars, Personal, Getin, Exit");
         }
     }
 
