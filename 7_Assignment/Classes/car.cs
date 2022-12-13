@@ -1,8 +1,6 @@
 class Car
 {
     #region Fields
-
-
     protected int CurrentGear = 0;
     private float _speed = 0f;
     internal int _revolutions = 0;
@@ -14,8 +12,6 @@ class Car
     public List<Tire> Tires = new List<Tire>();
     public List<Light> Lights = new List<Light>();
     public List<Engine> Engine = new List<Engine>();
-
-
 
     #endregion
 
@@ -31,7 +27,7 @@ class Car
         this.Tires = new List<Tire>();
         this.Doors = new List<Door>();
         this.Lights = new List<Light>();
-        this.Engine.Add(new Engine(10));
+        this.Engine.Add(new Engine(0));
 
         int x = 0;
         for (x = 0; x < 4; x++)
@@ -41,7 +37,6 @@ class Car
             this.Lights.Add(new Light(10));
         }
     }
-
     #endregion
 
     void Brake()
@@ -87,8 +82,8 @@ class Car
         "\nDoors: " + Doors.Count +
         "\nTires: " + Tires.Count +
         "\nTire Size: " + Tires[0].Size +
-        "\nLight Power: " + Lights[0].Strength +
         "\nEngine Power: " + Engine[0].Power +
+        "\nLight Strength: " + Lights[0].Strength +
         "\nPrice: $" + Price + "\n");
     }
 }

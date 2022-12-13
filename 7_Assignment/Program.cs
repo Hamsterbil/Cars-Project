@@ -16,12 +16,12 @@
 
 //Buy, Sell, Exit, Accelerate, Move, Turbo, Get in, Get out, Brake, Change gear
 
-Person player = new Person();
 Dealer dealer = new Dealer();
+Person player = new Person();
 
 dealer.talkingDealer("Welcome to our Car Dealership TM.");
 
-player.actions("Cars, Personal, Exit");
+player.actions("Cars, Personal");
 
 // string answer = Console.ReadLine();
 // if (answer == "Yes" || answer == "yes")
@@ -43,8 +43,4 @@ player.actions("Cars, Personal, Exit");
 //     Thread.Sleep(1000);
 //     return;
 // }
-
-
-
-
 Console.ReadKey();

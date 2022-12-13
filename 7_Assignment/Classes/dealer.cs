@@ -1,11 +1,30 @@
 class Dealer
 {
-    List<Car> randomCars = new List<Car>();
-    List<Car> personalCars = new List<Car>();
+    private static readonly Person player = new Person();
+    public static Person Player
+    {
+        get 
+        {
+            return player; 
+        }
+    }
+
+    public List<Car> randomCars = new List<Car>();   
+
+    public static List<string> CarBrands = new List<string>() {
+            "Volvo", "Volkswagen", "Toyota", "Ford", "Mercedes",
+            "BMW", "Audi", "Kia", "Renault", "Peugeot"
+        };
+    public static List<string> CarColors = new List<string>() {
+            "Yellow", "Black", "Silver", "Gold", "Red",
+            "Blue", "White", "Orange", "Green"
+        };            
+
     int price;
+    public int i = 0; 
 
     public void showCars(int i, bool showList)
-    {
+    {        
         Random RNG = new Random();
         int x = randomCars.Count;
 
@@ -37,41 +56,58 @@ class Dealer
             }
         }
     }
-    Credit money = new Credit(100000);
-
+    
     public void buy(int x)
     {
-        if (randomCars[x].Price > money.Amount)
+        if (randomCars[x].Price > player.money.Amount)
         {
             talkingDealer("I'm sorry, but you cannot buy this car");
+            player.actions("New Cars, Personal, Buy");
         }
 
         else
         {
             Console.Clear();
-            personalCars.Add(randomCars[x]);
+
+            player.personalCars.Add(randomCars[x]);
             randomCars[x].Bought = true;
+
             showCars(0, true);
-            money.spendMoney(randomCars[x].Price);
+
+            player.money.spendMoney(randomCars[x].Price);
             Console.WriteLine("You purchased:");
-            personalCars[0].Bought = false;
-            personalCars[0].data();
-            Console.WriteLine("Your balance is now: $" + money.Amount);
+
+            player.personalCars.Last().data();
+            
+            Console.WriteLine("Your balance is now: $" + player.money.Amount);
             talkingDealer("\nThank you for your purchase. Would you like to take it for a test drive, or buy something else?\n");
-            //player.actions("Cars, Personal, Getin, Exit");
+            player.actions("Cars, Personal, Buy, Get in");
         }
     }
-
-    public void sell()
+    
+    public void sell(int x)
     {
-
+        player.money.addMoney(player.personalCars[x].Price);
+        player.personalCars.RemoveAt(x);
+        randomCars[x].Bought = false;
     }
-
-    public void customize()
+    
+    public void customize() //FREDERIK
     {
+        /*
+        Print personlige biler
+        Spørg hvilken bils farve skal ændres, medmindre der er andre ting man kan ændre?
+        Print listen med farver
+        Person skriver farve, switch statement tager input og ændrer farven til den nye
+        Print dataen for den nye bil   
+        */
+        int x = 0;
 
+        player.personalCars[x].Color = CarColors[0];
+
+        player.personalCars[x].data();
     }
-
+    
     public void talkingDealer(string text)
     {
         Console.ForegroundColor = ConsoleColor.Blue;
@@ -81,14 +117,4 @@ class Dealer
         }
         Console.ForegroundColor = ConsoleColor.White;
     }
-
-    public static List<string> CarBrands = new List<string>() {
-            "Volvo", "Volkswagen", "Toyota", "Ford", "Mercedes",
-            "BMW", "Audi", "Kia", "Renault", "Peugeot"
-        };
-
-    public static List<string> CarColors = new List<string>() {
-            "Yellow", "Black", "Silver", "Gold", "Red",
-            "Blue", "White", "Orange", "Green"
-        };
 }

@@ -1,36 +1,62 @@
 class Person
 {
-    Dealer dealer = new Dealer();
-    Credit moneys = new Credit(100000);
-    public int i = 0;
+    private static readonly Dealer dealer = new Dealer();
+    public static Dealer Dealer
+    {
+        get 
+        {
+            return dealer; 
+        }
+    }
+    public List<Car> personalCars = new List<Car>();
+    public Credit money = new Credit();
+    int i;
 
-    //Cars, Personal, Buy, Sell, Drive, Accelerate, Getin, Getout, Exit
+
+    //THIS ORDER
+    //Cars, New Cars, Personal, Buy, Sell, Customize, Get in, Drive, Change Gear, Accelerate, Turbo, Brake, Get out, Exit
     public void actions(string usedActions)
     {
-        Console.WriteLine("\nWrite an action: [" + usedActions + "]");
+        Console.WriteLine("\nWrite an action: [" + usedActions + ", Exit]");
         string input = Console.ReadLine();
         switch (input)
         {
             case "Cars":
                 Console.Clear();
-                if (i == 1)
+                if (dealer.i == 0)
+                {
+                    dealer.showCars(5, true);
+                    dealer.i++; 
+                }
+                else
                 {
                     dealer.showCars(0, true);
                 }
-                while (i < 1)
-                {
-                    dealer.showCars(5, true);
-                    i++;
-                }
-                moneys.bal();
+                money.bal();
                 dealer.talkingDealer("\nWould you like to purchase any of these cars?");
-                actions("Personal, Buy, Sell, Exit");
+                actions("New Cars, Personal, Buy, Sell");
+                break;
+
+            case "New Cars":
+                Console.Clear();
+                dealer.randomCars.Clear();
+                dealer.showCars(5, true);
+                dealer.talkingDealer("\nWould you like to purchase any of these cars?");
+                actions("New Cars, Personal, Buy, Sell");
                 break;
 
             case "Personal":
-                moneys.bal();
+                Console.Clear();
+                money.bal();
                 Console.WriteLine("You own these cars:\n");
-                actions("Cars, Sell, Getin, Exit");
+                for (int i = 0; i < personalCars.Count; i++)
+                {
+                    Console.WriteLine("--------------------------------------");
+                    Console.WriteLine(i + 1 + ". Car");
+                    personalCars[i].data();
+                }
+
+                actions("Cars, Sell, Getin");
                 break;
 
             case "Buy":
@@ -39,7 +65,26 @@ class Person
                 break;
 
             case "Sell":
-
+                Console.Clear();
+                Console.WriteLine("You own these cars:\n");
+                for (int i = 0; i < personalCars.Count; i++)
+                {
+                    Console.WriteLine("--------------------------------------");
+                    Console.WriteLine(i + 1 + ". Car");
+                    personalCars[i].data();
+                }
+                dealer.talkingDealer("Are you sure you would like to sell a car?\n");
+                input = Console.ReadLine();
+                if (input == "Yes")
+                {
+                    Console.WriteLine("\nWhat car would you like to sell?");
+                    dealer.sell(int.Parse(Console.ReadLine()) - 1);
+                    actions("Cars, Personal");
+                }
+                else
+                {
+                    actions("Cars, Personal, Sell");
+                }    
                 break;
 
             case "Drive":
@@ -50,11 +95,11 @@ class Person
 
                 break;
 
-            case "Getin":
+            case "Get in":
 
                 break;
 
-            case "Getout":
+            case "Get out":
 
                 break;
 
