@@ -5,7 +5,7 @@ class Person
     public int insideCar;
     public Credit money = new Credit();
 
-    //THIS ORDER
+    //THIS ORDER SEEEEEX
     //Cars, New cars, Personal, Buy, Sell, Customize, Get in, Drive, Change gear, Accelerate, Turbo, Brake, Get out, Exit
     public void actions(string usedActions)
     {
