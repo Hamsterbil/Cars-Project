@@ -1,0 +1,15 @@
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\bin\Debug\net6.0\Test driving game.exe
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\bin\Debug\net6.0\Test driving game.deps.json
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\bin\Debug\net6.0\Test driving game.runtimeconfig.json
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\bin\Debug\net6.0\Test driving game.dll
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\bin\Debug\net6.0\Test driving game.pdb
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\obj\Debug\net6.0\Test driving game.csproj.AssemblyReference.cache
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\obj\Debug\net6.0\Test driving game.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\obj\Debug\net6.0\Test driving game.AssemblyInfoInputs.cache
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\obj\Debug\net6.0\Test driving game.AssemblyInfo.cs
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\obj\Debug\net6.0\Test driving game.csproj.CoreCompileInputs.cache
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\obj\Debug\net6.0\Test driving game.dll
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\obj\Debug\net6.0\refint\Test driving game.dll
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\obj\Debug\net6.0\Test driving game.pdb
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\obj\Debug\net6.0\Test driving game.genruntimeconfig.cache
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\Car dealership\Test driving game\obj\Debug\net6.0\ref\Test driving game.dll
