@@ -102,7 +102,7 @@ class Person
                     break;
 
                 case "customize":
-                    dealer.customize();
+                    dealer.customize(int.Parse(Console.ReadLine()));
 
                     actions("Cars, Personal, Sell, Customize, Get in");
                     loop = false;

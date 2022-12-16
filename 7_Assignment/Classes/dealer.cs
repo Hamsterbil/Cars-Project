@@ -1,7 +1,7 @@
 class Dealer
 {
     private static readonly Person player = new Person();
-    public List<Car> randomCars = new List<Car>();   
+    public List<Car> randomCars = new List<Car>();
 
     public static List<string> CarBrands = new List<string>() {
             "Volvo", "Volkswagen", "Toyota", "Ford", "Mercedes",
@@ -10,13 +10,13 @@ class Dealer
     public static List<string> CarColors = new List<string>() {
             "Yellow", "Black", "Silver", "Gold", "Red",
             "Blue", "White", "Orange", "Green"
-        };            
+        };
 
     double price;
-    public int i = 0; 
+    public int i = 0;
 
     public void showCars(int i, bool showList)
-    {        
+    {
         Random RNG = new Random();
         int x = randomCars.Count;
 
@@ -53,7 +53,7 @@ class Dealer
 
         }
     }
-    
+
     public void buy(int x)
     {
         if (randomCars[x].Price > player.money.Amount)
@@ -82,7 +82,7 @@ class Dealer
                 randomCars[x].Bought
             ));
 
-            randomCars[x].Bought = true;            
+            randomCars[x].Bought = true;
 
             showCars(0, true);
 
@@ -91,21 +91,21 @@ class Dealer
             player.personalCars.Last().Price = player.personalCars.Last().Price * 0.9;
 
             Console.WriteLine("You purchased:");
-            player.personalCars.Last().data();  
+            player.personalCars.Last().data();
 
             Console.WriteLine("Price went down by:");
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write("- $" + reduced + "\n");
             Console.ForegroundColor = ConsoleColor.White;
-            
+
             Console.WriteLine("Your balance is now: $" + player.money.Amount);
             talkingDealer("\nThank you for your purchase. Would you like to take it for a test drive, or buy something else?\n");
             player.actions("Cars, Personal, Buy, Get in");
         }
     }
-    
+
     public void sell(int x)
-    {            
+    {
         for (int z = 0; z < randomCars.Count; z++)
         {
             if (randomCars[z].ID == player.personalCars[x].ID)
@@ -117,23 +117,59 @@ class Dealer
             }
         }
     }
-    
-    public void customize() //FREDERIK
+
+    public void customize(int x) //FREDERIK
     {
-        /*
-        Print personlige biler
-        Spørg hvilken bils farve skal ændres, medmindre der er andre ting man kan ændre?
-        Print listen med farver
-        Person skriver farve, switch statement tager input og ændrer farven til den nye
-        Print dataen for den nye bil   
-        */
-        int x = 0;
+        for (int i = 0; i < CarColors.Count; i++)
+        {
+            Console.WriteLine(CarColors[i] + "\n");
+        }
 
-        player.personalCars[x].Color = CarColors[0];
+        talkingDealer("Write what car color you want.");
 
+        string input = Console.ReadLine();
+
+        switch (input.ToLower())
+        {
+            case "yellow":
+                player.personalCars[x].Color = CarColors[0];
+                break;
+
+            case "black":
+                player.personalCars[x].Color = CarColors[1];
+                break;
+
+            case "silver":
+                player.personalCars[x].Color = CarColors[2];
+                break;
+
+            case "gold":
+                player.personalCars[x].Color = CarColors[3];
+                break;
+
+            case "red":
+                player.personalCars[x].Color = CarColors[4];
+                break;
+
+            case "blue":
+                player.personalCars[x].Color = CarColors[5];
+                break;
+
+            case "white":
+                player.personalCars[x].Color = CarColors[6];
+                break;
+
+            case "green":
+                player.personalCars[x].Color = CarColors[7];
+                break;
+
+            case "orange":
+                player.personalCars[x].Color = CarColors[8];
+                break;
+        }
         player.personalCars[x].data();
     }
-    
+
     public void talkingDealer(string text)
     {
         Console.ForegroundColor = ConsoleColor.Blue;
