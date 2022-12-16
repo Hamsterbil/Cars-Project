@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gunna\\OneDrive\\OneDrive Ting\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\7_Assignment\\7_Assignment.csproj": {}
+    "C:\\Users\\jdj10\\OneDrive\\Dokumenter\\.vscode\\2.UV\\Skole vs studio\\CSharp\\Gruppe cardealer\\Cars-Project\\7_Assignment\\7_Assignment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gunna\\OneDrive\\OneDrive Ting\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\7_Assignment\\7_Assignment.csproj": {
+    "C:\\Users\\jdj10\\OneDrive\\Dokumenter\\.vscode\\2.UV\\Skole vs studio\\CSharp\\Gruppe cardealer\\Cars-Project\\7_Assignment\\7_Assignment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gunna\\OneDrive\\OneDrive Ting\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\7_Assignment\\7_Assignment.csproj",
+        "projectUniqueName": "C:\\Users\\jdj10\\OneDrive\\Dokumenter\\.vscode\\2.UV\\Skole vs studio\\CSharp\\Gruppe cardealer\\Cars-Project\\7_Assignment\\7_Assignment.csproj",
         "projectName": "7_Assignment",
-        "projectPath": "C:\\Users\\gunna\\OneDrive\\OneDrive Ting\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\7_Assignment\\7_Assignment.csproj",
-        "packagesPath": "C:\\Users\\gunna\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gunna\\OneDrive\\OneDrive Ting\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\7_Assignment\\obj\\",
+        "projectPath": "C:\\Users\\jdj10\\OneDrive\\Dokumenter\\.vscode\\2.UV\\Skole vs studio\\CSharp\\Gruppe cardealer\\Cars-Project\\7_Assignment\\7_Assignment.csproj",
+        "packagesPath": "C:\\Users\\jdj10\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\jdj10\\OneDrive\\Dokumenter\\.vscode\\2.UV\\Skole vs studio\\CSharp\\Gruppe cardealer\\Cars-Project\\7_Assignment\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
-        ],
         "configFilePaths": [
-          "C:\\Users\\gunna\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\jdj10\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
