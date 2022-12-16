@@ -24,8 +24,8 @@ class Dealer
         {
             int brandNum = RNG.Next(0, 9);
             int colorNum = RNG.Next(0, 8);
-            int tireSize = RNG.Next(50, 100);
-            int enginePower = RNG.Next(50, 60);
+            int tireSize = RNG.Next(5, 10);
+            int enginePower = RNG.Next(50, 100);
             int lightStrength = RNG.Next(1, 10);
             int ID = 100 + x;
 

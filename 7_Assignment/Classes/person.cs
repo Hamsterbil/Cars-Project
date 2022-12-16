@@ -14,9 +14,9 @@ class Person
         {
             Console.WriteLine("\nWrite an action: [" + usedActions + ", Exit]");
             string input = Console.ReadLine();
-            switch (input)
+            switch (input.ToLower())
             {
-                case "Cars": //DONE-------------------------------------
+                case "cars": //DONE-------------------------------------
                     Console.Clear();
                     if (dealer.i == 0)
                     {
@@ -33,7 +33,7 @@ class Person
                     loop = false;
                     break;
 
-                case "New cars": //DONE-------------------------------------
+                case "new cars": //DONE-------------------------------------
                     Console.Clear();
                     dealer.randomCars.Clear();
                     dealer.showCars(5, true);
@@ -42,7 +42,7 @@ class Person
                     loop = false;
                     break;
 
-                case "Personal": //DONE-------------------------------------
+                case "personal": //DONE-------------------------------------
                     Console.Clear();
                     money.bal();
                     Console.WriteLine("You own these cars:\n");
@@ -57,13 +57,13 @@ class Person
                     loop = false;
                     break;
 
-                case "Buy": //DONE-------------------------------------
+                case "buy": //DONE-------------------------------------
                     dealer.talkingDealer("\nPlease select your car:\n");
                     dealer.buy(int.Parse(Console.ReadLine()) - 1);
                     loop = false;
                     break;
 
-                case "Sell": //DONE-------------------------------------
+                case "sell": //DONE-------------------------------------
                     if (personalCars.Count == 0)
                     {
                         Console.WriteLine("You do not own any cars");
@@ -101,14 +101,14 @@ class Person
                     loop = false;
                     break;
 
-                case "Customize":
+                case "customize":
                     dealer.customize();
 
                     actions("Cars, Personal, Sell, Customize, Get in");
                     loop = false;
                     break;
 
-                case "Get in": //DONE-------------------------------------
+                case "get in": //DONE-------------------------------------
                     Console.Clear();
                     if (personalCars.Count() > 1)
                     {
@@ -140,7 +140,7 @@ class Person
                     loop = false;
                     break;
 
-                case "Drive":
+                case "drive":
                     if (personalCars[insideCar].isInside)
                     {
                         personalCars[insideCar].Drive();
@@ -155,7 +155,7 @@ class Person
                     loop = false;
                     break;
 
-                case "Change gear":
+                case "change gear":
                     if (personalCars[insideCar].isInside)
                     {
                         personalCars[insideCar].ChangeGear(int.Parse(Console.ReadLine()));
@@ -170,7 +170,7 @@ class Person
                     loop = false;
                     break;
 
-                case "Accelerate":
+                case "accelerate":
                     if (personalCars[insideCar].isInside)
                     {
                         personalCars[insideCar].Accelerate(0);
@@ -185,7 +185,7 @@ class Person
                     loop = false;
                     break;
 
-                case "Turbo":
+                case "turbo":
                     if (personalCars[insideCar].isInside)
                     {
                         personalCars[insideCar].Turbo(0);
@@ -200,7 +200,7 @@ class Person
                     loop = false;
                     break;
 
-                case "Brake": //DONE-------------------------------------
+                case "brake": //DONE-------------------------------------
                     if (personalCars[insideCar].isInside)
                     {
                         personalCars[insideCar].Brake();
@@ -215,7 +215,7 @@ class Person
                     loop = false;
                     break;
                 
-                case "Get out": //DONE-------------------------------------
+                case "get out": //DONE-------------------------------------
                     if (personalCars[insideCar].isInside)
                     {
                         personalCars[insideCar].GetOut(personalCars[insideCar].Doors[0]);      
@@ -230,7 +230,7 @@ class Person
                     loop = false;
                     break;
 
-                case "Exit": //DONE-------------------------------------
+                case "exit": //DONE-------------------------------------
                     Console.WriteLine("Game exited.");
                     Console.ReadKey();
                     return;
