@@ -10,9 +10,9 @@ class Person
     //Cars, New cars, Personal, Buy, Sell, Customize, Get in, Drive, Change gear, Accelerate, Turbo, Brake, Get out
     public void actions(string usedActions)
     {
-    //Loop whenever wrong input
+        //Loop whenever wrong input
         bool loop = true;
-        while(loop)
+        while (loop)
         {
             Console.WriteLine("\nWrite an action: [" + usedActions + "]");
             string input = Console.ReadLine();
@@ -27,7 +27,7 @@ class Person
                     if (dealer.i == 0)
                     {
                         dealer.showCars(5, true);
-                        dealer.i++; 
+                        dealer.i++;
                     }
                     else
                     {
@@ -56,7 +56,7 @@ class Person
                 - Display currently owned cars, if any are owned
                 - Display actions  */
                     Console.Clear();
-                    money.bal();              
+                    money.bal();
                     if (personalCars.Count > 0)
                     {
                         Console.WriteLine("You own these cars:\n");
@@ -96,7 +96,7 @@ class Person
                             }
                             dealer.buy(int.Parse(input) - 1);
                         }
-                        else 
+                        else
                         {
                             break;
                         }
@@ -111,19 +111,19 @@ class Person
                 - Check if any car is owned
                 - If player owns more than one car (to make player choose), sell chosen car. If they write anything other than an int, loops switch again
                 - If they own 1 car (chooses automatically), sell
-                - Display actions   */  
+                - Display actions   */
                     if (personalCars.Count == 0)
                     {
                         Console.WriteLine("You do not own any cars");
                         break;
-                    }                       
-                    Console.Clear();     
+                    }
+                    Console.Clear();
                     if (personalCars.Count > 1)
-                    {       
+                    {
                         dealer.talkingDealer("Are you sure you would like to sell a car?\n");
                         input = Console.ReadLine().ToLower();
                         if (input == "yes")
-                        {                      
+                        {
                             Console.WriteLine("You own these cars:\n");
                             for (int i = 0; i < personalCars.Count; i++)
                             {
@@ -132,13 +132,13 @@ class Person
                                 personalCars[i].data();
                             }
 
-                            Console.WriteLine("\nWhat car would you like to sell?");     
+                            Console.WriteLine("\nWhat car would you like to sell?");
                             input = Console.ReadLine();
                             if (int.TryParse(input, out i))
                             {
                                 dealer.sell(int.Parse(input) - 1);
                             }
-                            else 
+                            else
                             {
                                 break;
                             }
@@ -156,37 +156,38 @@ class Person
                     }
                     break;
 
-                case "customize": /*
-                - Clear console
-                - Check if any car is owned
-                - If player owns more than one car (to make player choose), customize chosen car. If they write anything other than an int, loops switch again
-                - If they own 1 car (chooses automatically), customize
-                - Display actions   */
+                case "customize":
+                    /*
+                   - Clear console
+                   - Check if any car is owned
+                   - If player owns more than one car (to make player choose), customize chosen car. If they write anything other than an int, loops switch again
+                   - If they own 1 car (chooses automatically), customize
+                   - Display actions   */
                     if (personalCars.Count == 0)
                     {
                         Console.WriteLine("You do not own any cars");
                         break;
-                    }    
+                    }
                     Console.Clear();
                     if (personalCars.Count > 1)
-                    {    
-                            Console.WriteLine("You own these cars:\n");
-                            for (int i = 0; i < personalCars.Count; i++)
-                            {
-                                Console.WriteLine("--------------------------------------");
-                                Console.WriteLine(i + 1 + ". Car");
-                                personalCars[i].data();
-                            }
-                            Console.WriteLine("\nWhat car would you like to sell?");                             
-                            input = Console.ReadLine();
-                            if (int.TryParse(input, out i))
-                            {
-                                dealer.customize(int.Parse(input) - 1);
-                            }
-                            else 
-                            {
-                                break;
-                            }
+                    {
+                        Console.WriteLine("You own these cars:\n");
+                        for (int i = 0; i < personalCars.Count; i++)
+                        {
+                            Console.WriteLine("--------------------------------------");
+                            Console.WriteLine(i + 1 + ". Car");
+                            personalCars[i].data();
+                        }
+                        Console.WriteLine("\nWhat car would you like to sell?");
+                        input = Console.ReadLine();
+                        if (int.TryParse(input, out i))
+                        {
+                            dealer.customize(int.Parse(input) - 1);
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     else
                     {
@@ -205,7 +206,7 @@ class Person
                     {
                         Console.WriteLine("You do not own any cars");
                         break;
-                    }    
+                    }
                     Console.Clear();
                     if (personalCars.Count() > 1)
                     {
@@ -219,15 +220,15 @@ class Person
                         Console.WriteLine("Which car would you like to get in?");
                         input = Console.ReadLine();
                         if (int.TryParse(input, out i))
-                            {
-                                insideCar = int.Parse(input);
-                                personalCars[insideCar].GetIn(personalCars[insideCar].Doors[0]);  
-                            }
-                            else 
-                            {
-                                break;
-                            }
-  
+                        {
+                            insideCar = int.Parse(input);
+                            personalCars[insideCar].GetIn(personalCars[insideCar].Doors[0]);
+                        }
+                        else
+                        {
+                            break;
+                        }
+
                     }
                     else if (personalCars.Count() == 0)
                     {
@@ -235,24 +236,35 @@ class Person
                         break;
                     }
                     else
-                    {   
+                    {
                         personalCars[0].GetIn(personalCars[0].Doors[0]);
-                    }                
+                    }
                     actions("Drive, Get out");
                     break;
 
                 case "drive":
-                    Console.WriteLine("You do not have the keys");
+                    if (personalCars.Count == 0)
+                    {
+                        Console.WriteLine("You do not own any cars");
+                        break;
+                    }
+                    else
+                    {
+                    Console.WriteLine("You take the car for a drive and earn 1000");
+                    money.addMoney(1000);
+                    actions("Drive, Get out");
                     break;
-                    // if (personalCars[insideCar].isInside)
-                    // {
-                    //     personalCars[insideCar].Drive();
-                    // }
-                    // else
-                    // {
-                    //     Console.WriteLine("You are not in your car");
-                    //     break;
-                    // }
+                    }
+                    
+                // if (personalCars[insideCar].isInside)
+                // {
+                //     personalCars[insideCar].Drive();
+                // }
+                // else
+                // {
+                //     Console.WriteLine("You are not in your car");
+                //     break;
+                // }
 
                 //     actions("Drive, Change gear, Accelerate, Brake");
                 //     break;
@@ -313,20 +325,20 @@ class Person
 
                 //     actions("Drive, Get out");
                 //     break;
-                
+
                 case "get out": /*
                 - Check if inside car. If true, get out of car
                 - Display actions   */
                     if (personalCars[insideCar].isInside)
                     {
-                        personalCars[insideCar].GetOut(personalCars[insideCar].Doors[0]);      
+                        personalCars[insideCar].GetOut(personalCars[insideCar].Doors[0]);
                     }
                     else
                     {
                         Console.WriteLine("You are not in any car");
                         break;
                     }
-                            
+
                     actions("Cars, Personal");
                     break;
 
