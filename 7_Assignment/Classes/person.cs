@@ -308,8 +308,8 @@ class Person {
                     Console.WriteLine("Hej Jesper, pls giv os 12");
                     Process process = new Process();
                     process.StartInfo.UseShellExecute = true;
-                    process.StartInfo.FileName = "chrome";
-                    process.StartInfo.Arguments = Path.Combine(Directory.GetCurrentDirectory(), "obj/Debug/brugerfoto.png"); 
+                    process.StartInfo.FileName = "chrome.exe";
+                    process.StartInfo.Arguments = System.IO.Path.GetDirectoryName(Path.Combine(Directory.GetCurrentDirectory(), @"obj/Debug/brugerfoto.png/")); 
                     process.Start();
                     break;
 
