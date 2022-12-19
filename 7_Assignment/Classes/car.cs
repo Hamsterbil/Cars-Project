@@ -1,5 +1,4 @@
-class Car
-{
+class Car {
     #region Fields
     protected int CurrentGear = 0;
     private float _speed = 0f;
@@ -18,14 +17,10 @@ class Car
     public List<Tire> Tires = new List<Tire>();
     public List<Light> Lights = new List<Light>();
     public List<Engine> Engine = new List<Engine>();
-
     #endregion
 
     #region Constructors
-    //this.GetIn(this.Doors[0]);
-    //Console.WriteLine("Car constructed / Instantiated");
-    public Car(string brandParamater, string colorParameter, double price, int amountOfDoors, int amountOfTires, int tireSize, int enginePower, int lightStrength, int Id, bool bought)
-    {
+    public Car(string brandParamater, string colorParameter, double price, int amountOfDoors, int amountOfTires, int tireSize, int enginePower, int lightStrength, int Id, bool bought) {
         this.Brand = brandParamater;
         this.Color = colorParameter;
         this.TireSize = tireSize;
@@ -39,9 +34,7 @@ class Car
         this.Lights = new List<Light>();
         this.Engine.Add(new Engine(0));
 
-        int x = 0;
-        for (x = 0; x < 4; x++)
-        {
+        for (int x = 0; x < 4; x++) {
             this.Doors.Add(new Door());
             this.Tires.Add(new Tire(10));
             this.Lights.Add(new Light(10));
@@ -49,52 +42,45 @@ class Car
     }
     #endregion
 
-    public void Drive()
-    {
-        
+    #region Methods
+    public void Drive() {
+
     }
 
-    public void Brake()
-    {
+    public void Brake() {
         _speed = 0f;
     }
 
-    public void Accelerate(float forceParameter)
-    {
+    public void Accelerate(float forceParameter) {
         _speed = _speed + forceParameter;
     }
 
-    public void Turbo(float forceParameter)
-    {
+    public void Turbo(float forceParameter) {
         _speed = _speed * forceParameter;
     }
 
-    public int ChangeGear(int amount)
-    {
+    public int ChangeGear(int amount) {
         CurrentGear += amount;
         return CurrentGear;
     }
 
-    public void GetIn(Door doorParameter)
-    {
-        isInside = true; 
+    public void GetIn(Door doorParameter) {
+        isInside = true;
         doorParameter.Open();
         Console.WriteLine("Got inside " + Brand);
         doorParameter.Close();
     }
 
-    public void GetOut(Door doorParameter)
-    {
+    public void GetOut(Door doorParameter) {
         isInside = false;
         doorParameter.Open();
         Console.WriteLine("Got out of " + Brand);
         doorParameter.Close();
     }
 
-    public void data()
-    {
+    public void data() {
         Console.WriteLine(
-        "\nCar Brand: " + Brand +
+        "Car Brand: " + Brand +
         "\nCar Color: " + Color +
         "\nDoors: " + Doors.Count +
         "\nTires: " + Tires.Count +
@@ -103,4 +89,5 @@ class Car
         "\nLight Strength: " + LightStrength +
         "\nPrice: $" + Price + "\n");
     }
+    #endregion
 }
