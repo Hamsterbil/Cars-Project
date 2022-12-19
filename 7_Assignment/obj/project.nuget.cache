@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ucEV71R401XjJWzeNf/L699p9tI3aoENWpR81JVaiUJrXI/yS4O+eLtCfzBrmVpVJKp8AI9hq5pLyRzA1n6BPw==",
+  "dgSpecHash": "c6PPAOGc7wEg1bAzTYd1vu0pCa8jcqh0RS3uu58xV0rTZSwqTh7J9qBpYbp7/aF8Cw6MPEY+gtl4/4duqzrHVw==",
   "success": true,
-  "projectFilePath": "F:\\Skole\\Programmering\\Cars-Project\\7_Assignment\\7_Assignment.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\gunna\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.10\\microsoft.netcore.app.ref.6.0.10.nupkg.sha512",
-    "C:\\Users\\gunna\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.10\\microsoft.windowsdesktop.app.ref.6.0.10.nupkg.sha512",
-    "C:\\Users\\gunna\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.10\\microsoft.aspnetcore.app.ref.6.0.10.nupkg.sha512",
-    "C:\\Users\\gunna\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.10\\microsoft.netcore.app.host.win-x64.6.0.10.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\gunna\\OneDrive\\OneDriveTing\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\7_Assignment\\7_Assignment.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

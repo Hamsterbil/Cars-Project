@@ -8,20 +8,25 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\gunna\\.nuget\\packages\\": {}
+    "C:\\Users\\gunna\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Skole\\Programmering\\Cars-Project\\7_Assignment\\7_Assignment.csproj",
+      "projectUniqueName": "C:\\Users\\gunna\\OneDrive\\OneDriveTing\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\7_Assignment\\7_Assignment.csproj",
       "projectName": "7_Assignment",
-      "projectPath": "F:\\Skole\\Programmering\\Cars-Project\\7_Assignment\\7_Assignment.csproj",
+      "projectPath": "C:\\Users\\gunna\\OneDrive\\OneDriveTing\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\7_Assignment\\7_Assignment.csproj",
       "packagesPath": "C:\\Users\\gunna\\.nuget\\packages\\",
-      "outputPath": "F:\\Skole\\Programmering\\Cars-Project\\7_Assignment\\obj\\",
+      "outputPath": "C:\\Users\\gunna\\OneDrive\\OneDriveTing\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\7_Assignment\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
         "C:\\Users\\gunna\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -56,30 +61,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[6.0.10, 6.0.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[6.0.10, 6.0.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[6.0.10, 6.0.10]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[6.0.10, 6.0.10]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100-rc.2.22477.23\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.404\\RuntimeIdentifierGraph.json"
       }
     }
   }

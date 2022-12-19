@@ -309,7 +309,7 @@ class Person {
                     Process process = new Process();
                     process.StartInfo.UseShellExecute = true;
                     process.StartInfo.FileName = "chrome.exe";
-                    process.StartInfo.Arguments = System.IO.Path.GetDirectoryName(Path.Combine(Directory.GetCurrentDirectory(), @"obj/Debug/brugerfoto.png/")); 
+                    process.StartInfo.Arguments = "\"" + Path.Combine(Directory.GetCurrentDirectory(), @"obj/Debug/brugerfoto.png") + "\"";
                     process.Start();
                     break;
 
@@ -318,7 +318,6 @@ class Person {
             }
         }
     }
-
     public void ownedCars() {
         Console.WriteLine("You own these cars:\n");
         for (int i = 0; i < personalCars.Count; i++) {
