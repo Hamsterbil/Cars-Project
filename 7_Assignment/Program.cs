@@ -20,27 +20,6 @@ Dealer dealer = new Dealer();
 Person player = new Person();
 
 dealer.talkingDealer("Welcome to our Car Dealership TM.");
-
 player.actions("Cars, Personal");
 
-// string answer = Console.ReadLine();
-// if (answer == "Yes" || answer == "yes")
-// {
-//     dealer.talkingDealer("");
-//     Thread.Sleep(1000);
-//     Console.Clear();
-// }
-
-// else if (answer == "No" || answer == "no")
-// {
-//     dealer.talkingDealer("Well screw you, man!");
-//     Thread.Sleep(1000);
-//     return;
-// }
-
-// else
-// {
-//     Thread.Sleep(1000);
-//     return;
-// }
 Console.ReadKey();

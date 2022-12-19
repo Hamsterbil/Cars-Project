@@ -83,7 +83,6 @@ public class Road
 
 	public bool isInside = true; 
 
-
 	int width = 5;
 	int height = 11;
 
@@ -109,43 +108,140 @@ public class Road
 			{
 				this.walkLines.Add("  ");
 			}
-		
-		lines[10] = "||{0}{1}{2}{3}{4}{5}{6}{7}{8}||";
-		lines[1] = "||         {0} ||";
     }
+
     public void Tick()
     {
-
-		
-		string[] data = {"C"," ","$"," "," | ","C","C"," "," "};
-		string[] carData = {"X"};
 		Random random = new Random();
+        int carPos = 7;
+        string[] data = {" "," "," "," "," | "," "," "," ", " "};        
+        string[] carData = {" "," "," "," "," | "," "," "," ", " "};
+        string line0save = "";
+        string line0save1 = "";
+        int l = 0;
+        int xx = 0;
+        string input = "";
+        bool loop = true;
 
-        Console.WriteLine("      1   2   3   4   5");
-        Console.Write(edgeHorizontal + "\n");
-        Console.WriteLine(
-           " 10 |" + walkLines[10] + String.Format(lines[10], data) + walkLines[10] + "|      Speed: " /*+ _speed*/ + "\n" +
-           "  9 +" + walkLines[9] + lines[9] + walkLines[9] + "+      Current gear: " /*+ CurrentGear*/ + "\n" + 
-           "  8 |" + walkLines[8] + lines[8] + walkLines[8] + "|      Turbo left: " /*+ turboTank*/ + "\n" +
-           "  7 +" + walkLines[7] + lines[7] + walkLines[7] + "+      Balance: " /*+ bal*/ + "\n" +
-           "  6 |" + walkLines[6] + lines[6] + walkLines[6] + "|\n" +
-           "  5 +" + walkLines[5] + lines[5] + walkLines[5] + "+      Actions:" + "\n" +
-           "  4 |" + walkLines[4] + lines[4] + walkLines[4] + "|         [" /*+ usedActions*/ + ", Exit]" + "\n" +
-           "  3 +" + walkLines[3] + lines[3] + walkLines[3] + "+      " /*+ addMoney*/ + "\n" +
-           "  2 |" + walkLines[2] + lines[2] + walkLines[2] + "|\n" +
-           "  1 +" + walkLines[1] + String.Format(lines[1], carData) + walkLines[1] + "+\n" +
-           "  0 |" + walkLines[0] + lines[0] + walkLines[0] + "|"
-            );
-        Console.Write(edgeHorizontal);
+        string[] data2 = {" "," "," "," "," | "," "," "," ", " "}; 
+        string[] data3 = {" "," "," "," "," | "," "," "," ", " "}; 
+        string[] data4 = {" "," "," "," "," | "," "," "," ", " "}; 
+        string[] data5 = {" "," "," "," "," | "," "," "," ", " "}; 
+        string[] data6 = {" "," "," "," "," | "," "," "," ", " "}; 
+        string[] data7 = {" "," "," "," "," | "," "," "," ", " "}; 
+        string[] data8 = {" "," "," "," "," | "," "," "," ", " "};
+        string[] data9 = {" "," "," "," "," | "," "," "," ", " "};  
 
-		Console.WriteLine("\n\n\n");
-
-		for (int x = 0; x < 100; x++)
+	    while (loop)
 		{
+            if (input == "left" && carPos > 0)
+            {
+                carPos = carPos - 1;
+            }
+            else if (input == "right" && carPos < 8)
+            {
+                carPos = carPos + 1;
+            }
+            carData[carPos] = "X";
+            lines[10] = "||{0}{1}{2}{3}{4}{5}{6}{7}{8}||";
+            lines[10] = string.Format(lines[10], data);
+            lines[1] = string.Format(lines[1], carData);
+
 			Console.Clear();
-			string mmm = String.Format(lines[10], data);
-			lines[0] = lines[3]; 
-			lines[2] = lines[3];
+			Console.WriteLine("      1   2   3   4   5");
+        	Console.Write(edgeHorizontal + "\n");
+			Console.WriteLine(
+			" 10 |" + walkLines[10] + lines[10] + walkLines[10] + "|      Speed: " /*+ _speed*/ + "\n" +
+			"  9 +" + walkLines[9] + lines[9] + walkLines[9] + "+      Current gear: " /*+ CurrentGear*/ + "\n" + 
+            "  8 |" + walkLines[8] + lines[8] + walkLines[8] + "|      Turbo left: " /*+ turboTank*/ + "\n" +
+            "  7 +" + walkLines[7] + lines[7] + walkLines[7] + "+      Balance: " /*+ bal*/ + "\n" +
+            "  6 |" + walkLines[6] + lines[6] + walkLines[6] + "|\n" +
+            "  5 +" + walkLines[5] + lines[5] + walkLines[5] + "+      Actions:" + "\n" +
+            "  4 |" + walkLines[4] + lines[4] + walkLines[4] + "|         [" /*+ usedActions*/ + ", Exit]" + "\n" +
+            "  3 +" + walkLines[3] + lines[3] + walkLines[3] + "+      " /*+ addMoney*/ + "\n" +
+            "  2 |" + walkLines[2] + lines[2] + walkLines[2] + "|\n" +
+            "  1 +" + walkLines[1] + lines[1] + walkLines[1] + "+\n" +
+            "  0 |" + walkLines[0] + lines[0] + walkLines[0] + "|"
+            );
+			Console.Write(edgeHorizontal);
+			Console.WriteLine("\n\n" + _tick);
+
+            for (int z = 0; z < 9; z++)
+            {
+                int i = random.Next(0, 9);
+                    if (i == 0)
+                    {
+                        data[z] = "C";
+                    }
+                    else if (i == 1)
+                    {
+                        data[z] = "$";
+                    }
+                    else
+                    {
+                        data[z] = " ";
+                    }
+            }
+
+            if (xx == 0) {data2 = data;}
+            if (xx == 1) {data3 = data;}
+            if (xx == 2) {data4 = data;}
+            if (xx == 3) {data5 = data;}
+            if (xx == 4) {data6 = data;}
+            if (xx == 5) {data7 = data;}
+            if (xx == 6) {data8 = data;}
+            if (xx == 7) {data9 = data;}
+
+            if (xx > 7)
+            {
+                for (int x = 0; x < 8; x++)
+                {
+                    
+                    if (data9[carPos] == "C")
+                    {
+                        Console.WriteLine("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");                    
+                    }
+                    carData[x] = data9[x];
+                    carData[carPos] = "X";
+
+                    data9 = data8;
+                    data8 = data7;
+                    data7 = data6; 
+                    data6 = data5; 
+                    data5 = data4; 
+                    data4 = data3; 
+                    data3 = data2; 
+                    data2 = data; 
+                }
+            }
+
+            if (l == 0)
+            {
+                data[4] = "   ";
+                l++;
+            }
+            else
+            {
+                data[4] = " | ";
+                l--;
+            }
+
+                if (_tick == 0)
+                {
+                    line0save = lines[3];
+                    line0save1 = lines[2];
+                }
+                if (_tick % 2 != 0)
+                {
+                    line0save = lines[2];
+                    lines[0] = line0save1;
+                }
+                else if (_tick % 2 == 0)
+                {
+                    line0save1 = lines[2];
+                    lines[0] = line0save;
+                }            
+            lines[2] = lines[3];
 			lines[3] = lines[4];
 			lines[4] = lines[5];
 			lines[5] = lines[6];
@@ -153,30 +249,11 @@ public class Road
 			lines[7] = lines[8];
 			lines[8] = lines[9];
 			lines[9] = lines[10];
-			lines[10] = lines[0];
 
-			Console.WriteLine("      1   2   3   4   5");
-        	Console.Write(edgeHorizontal + "\n");
-			Console.WriteLine(
-			" 10 |" + walkLines[10] + String.Format(lines[10], data) + walkLines[10] + "|      Speed: " /*+ _speed*/ + "\n" +
-			"  9 +" + walkLines[9] + String.Format(lines[9], data) + walkLines[9] + "+      Current gear: " /*+ CurrentGear*/ + "\n" + 
-            "  8 |" + walkLines[8] + String.Format(lines[8], data) + walkLines[8] + "|      Turbo left: " /*+ turboTank*/ + "\n" +
-            "  7 +" + walkLines[7] + String.Format(lines[7], data) + walkLines[7] + "+      Balance: " /*+ bal*/ + "\n" +
-            "  6 |" + walkLines[6] + String.Format(lines[6], data) + walkLines[6] + "|\n" +
-            "  5 +" + walkLines[5] + String.Format(lines[5], data) + walkLines[5] + "+      Actions:" + "\n" +
-            "  4 |" + walkLines[4] + String.Format(lines[4], data) + walkLines[4] + "|         [" /*+ usedActions*/ + ", Exit]" + "\n" +
-            "  3 +" + walkLines[3] + String.Format(lines[3], data) + walkLines[3] + "+      " /*+ addMoney*/ + "\n" +
-            "  2 |" + walkLines[2] + String.Format(lines[2], data) + walkLines[2] + "|\n" +
-            "  1 +" + walkLines[1] + String.Format(lines[1], carData) + walkLines[1] + "+\n" +
-            "  0 |" + walkLines[0] + String.Format(lines[0], data) + walkLines[0] + "|"
-            );
-			Console.Write(edgeHorizontal);
-
-			_tick++;
-			Console.WriteLine("\n\n" + _tick);
-			Thread.Sleep(500);
-		}
-        
+            _tick++;
+            xx++;
+            input = Console.ReadLine();
+        }    
 
     }       
 	public class Cash

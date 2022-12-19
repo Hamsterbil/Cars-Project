@@ -19,6 +19,6 @@ class Credit
 
     public void bal()
     {
-        Console.WriteLine("\nYou have: $" + Amount + " moneys");
+        Console.WriteLine("You have: $" + Amount + " moneys");
     }
 }

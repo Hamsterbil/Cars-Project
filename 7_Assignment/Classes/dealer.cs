@@ -50,24 +50,21 @@ class Dealer
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("--------------------------------------\n");
             }
-
         }
     }
 
     public void buy(int x)
     {
-        if (randomCars[x].Price > player.money.Amount)
-        {
-            talkingDealer("\nI'm sorry, but you cannot buy this car");
-            player.actions("New cars, Personal, Buy");
-        }
-        else if (randomCars[x].Bought == true)
+        if (randomCars[x].Bought == true)
         {
             Console.WriteLine("\nYou already own this car");
             player.actions("New cars, Personal, Buy");
         }
-        else
+        else if (randomCars[x].Price > player.money.Amount)
         {
+            talkingDealer("\nI'm sorry, but you cannot buy this car");
+            player.actions("New cars, Personal, Buy");
+        }
             Console.Clear();
             player.personalCars.Add(new Car(
                 randomCars[x].Brand,
@@ -100,8 +97,7 @@ class Dealer
 
             Console.WriteLine("Your balance is now: $" + player.money.Amount);
             talkingDealer("\nThank you for your purchase. Would you like to take it for a test drive, or buy something else?\n");
-            player.actions("Cars, Personal, Buy, Get in");
-        }
+            player.actions("Cars, Personal, Buy, Customize, Get in");
     }
 
     public void sell(int x)
@@ -118,56 +114,38 @@ class Dealer
         }
     }
 
-    public void customize(int x) //FREDERIK
-    {
-        for (int i = 0; i < CarColors.Count; i++)
-        {
-            Console.WriteLine(CarColors[i] + "\n");
+    public void customize(int x)
+    {   
+        string input;
+        int colorNum = 0;
+        bool loop = true;
+        while(loop)
+        {   
+            talkingDealer("Choose your color.\n"); 
+            for (int i = 0; i < CarColors.Count; i++)
+            {
+                Console.WriteLine(CarColors[i]);
+            }
+            input = Console.ReadLine();
+            for (int l = 0; l < CarColors.Count; l++)
+            {
+                if (input == CarColors[l].ToLower())
+                {
+                    colorNum = l;
+                    loop = false;
+                }
+            }
         }
-
-        talkingDealer("Write what car color you want.");
-
-        string input = Console.ReadLine();
-
-        switch (input.ToLower())
+        for (int z = 0; z < randomCars.Count; z++)
         {
-            case "yellow":
-                player.personalCars[x].Color = CarColors[0];
-                break;
-
-            case "black":
-                player.personalCars[x].Color = CarColors[1];
-                break;
-
-            case "silver":
-                player.personalCars[x].Color = CarColors[2];
-                break;
-
-            case "gold":
-                player.personalCars[x].Color = CarColors[3];
-                break;
-
-            case "red":
-                player.personalCars[x].Color = CarColors[4];
-                break;
-
-            case "blue":
-                player.personalCars[x].Color = CarColors[5];
-                break;
-
-            case "white":
-                player.personalCars[x].Color = CarColors[6];
-                break;
-
-            case "green":
-                player.personalCars[x].Color = CarColors[7];
-                break;
-
-            case "orange":
-                player.personalCars[x].Color = CarColors[8];
-                break;
-        }
+            if (randomCars[z].ID == player.personalCars[x].ID)
+            {
+                randomCars[z].Color = CarColors[colorNum];
+            }
+        }        
+        player.personalCars[x].Color = CarColors[colorNum];
         player.personalCars[x].data();
+        player.actions("Cars, Personal, Sell, Customize, Get in");
     }
 
     public void talkingDealer(string text)

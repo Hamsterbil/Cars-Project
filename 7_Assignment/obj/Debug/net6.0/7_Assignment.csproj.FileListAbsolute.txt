@@ -43,3 +43,18 @@ C:\Users\jdj10\OneDrive\Dokumenter\.vscode\2.UV\Skole vs studio\CSharp\Gruppe ca
 C:\Users\jdj10\OneDrive\Dokumenter\.vscode\2.UV\Skole vs studio\CSharp\Gruppe cardealer\Cars-Project\7_Assignment\obj\Debug\net6.0\7_Assignment.pdb
 C:\Users\jdj10\OneDrive\Dokumenter\.vscode\2.UV\Skole vs studio\CSharp\Gruppe cardealer\Cars-Project\7_Assignment\obj\Debug\net6.0\7_Assignment.genruntimeconfig.cache
 C:\Users\jdj10\OneDrive\Dokumenter\.vscode\2.UV\Skole vs studio\CSharp\Gruppe cardealer\Cars-Project\7_Assignment\obj\Debug\net6.0\ref\7_Assignment.dll
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\bin\Debug\net6.0\7_Assignment.exe
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\bin\Debug\net6.0\7_Assignment.deps.json
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\bin\Debug\net6.0\7_Assignment.runtimeconfig.json
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\bin\Debug\net6.0\7_Assignment.dll
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\bin\Debug\net6.0\7_Assignment.pdb
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\obj\Debug\net6.0\7_Assignment.csproj.AssemblyReference.cache
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\obj\Debug\net6.0\7_Assignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\obj\Debug\net6.0\7_Assignment.AssemblyInfoInputs.cache
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\obj\Debug\net6.0\7_Assignment.AssemblyInfo.cs
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\obj\Debug\net6.0\7_Assignment.csproj.CoreCompileInputs.cache
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\obj\Debug\net6.0\7_Assignment.dll
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\obj\Debug\net6.0\refint\7_Assignment.dll
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\obj\Debug\net6.0\7_Assignment.pdb
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\obj\Debug\net6.0\7_Assignment.genruntimeconfig.cache
+C:\Users\gunna\OneDrive\OneDrive Ting\Documents\HB\2.UV\Programmering\Github\7_Assignment\obj\Debug\net6.0\ref\7_Assignment.dll
