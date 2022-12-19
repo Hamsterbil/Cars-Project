@@ -54,7 +54,6 @@ EXAMPLE SCENE:
 
 Write action:
 ____
-
 */
 Road road = new Road();
 road.Tick();
