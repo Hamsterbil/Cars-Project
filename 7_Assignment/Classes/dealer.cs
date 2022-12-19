@@ -1,6 +1,7 @@
-class Dealer {
+class Dealer
+{
     #region Fields
-//Person calls int i, because otherwise nothing works. ¯\_(ツ)_/¯
+    //Person calls "int i", because otherwise nothing works. ¯\_(ツ)_/¯
     public int i = 0;
     int x;
     int colorNum;
@@ -8,6 +9,7 @@ class Dealer {
     string input;
     bool loop;
     Random RNG = new Random();
+    private static readonly Person player = new Person();
 
     public List<Car> randomCars = new List<Car>();
     public static List<string> CarBrands = new List<string>() {
@@ -18,15 +20,15 @@ class Dealer {
         "Yellow", "Black", "Silver", "Gold", "Red",
         "Blue", "White", "Orange", "Green"
     };
-
-    private static readonly Person player = new Person();
     #endregion
 
     #region Methods
-    public void showCars(int i, bool showList) {
+    public void showCars(int i, bool showList)
+    {
         x = randomCars.Count;
 
-        for (i = i + x; x < i; x = randomCars.Count) {
+        for (i = i + x; x < i; x = randomCars.Count)
+        {
             int brandNum = RNG.Next(0, 9);
             int colorNum = RNG.Next(0, 8);
             int tireSize = RNG.Next(1, 10);
@@ -43,9 +45,12 @@ class Dealer {
             randomCars.Add(new Car(CarBrands[brandNum], CarColors[colorNum], price, 4, 4, tireSize, enginePower, lightStrength, ID, false));
         }
 
-        if (showList == true) {
-            for (x = 0; x < randomCars.Count; x++) {
-                if (randomCars[x].Bought == true) {
+        if (showList == true)
+        {
+            for (x = 0; x < randomCars.Count; x++)
+            {
+                if (randomCars[x].Bought == true)
+                {
                     Console.ForegroundColor = ConsoleColor.Red;
                 }
                 Console.WriteLine(x + 1 + ". Car\n");
@@ -56,12 +61,15 @@ class Dealer {
         }
     }
 
-    public void buy(int x) {
-        if (randomCars[x].Bought == true) {
+    public void buy(int x)
+    {
+        if (randomCars[x].Bought == true)
+        {
             Console.WriteLine("\nYou already own this car");
             player.actions("New cars, Personal, Buy");
         }
-        else if (randomCars[x].Price > player.money.Amount) {
+        else if (randomCars[x].Price > player.money.Amount)
+        {
             talkingDealer("\nI'm sorry, but you cannot buy this car");
             player.actions("New cars, Personal, Buy");
         }
@@ -100,9 +108,12 @@ class Dealer {
         player.actions("Cars, Personal, Buy, Customize, Get in");
     }
 
-    public void sell(int x) {
-        for (int z = 0; z < randomCars.Count; z++) {
-            if (randomCars[z].ID == player.personalCars[x].ID) {
+    public void sell(int x)
+    {
+        for (int z = 0; z < randomCars.Count; z++)
+        {
+            if (randomCars[z].ID == player.personalCars[x].ID)
+            {
                 randomCars[z].Bought = false;
                 player.money.addMoney(player.personalCars[x].Price);
                 player.personalCars.RemoveAt(x);
@@ -111,35 +122,51 @@ class Dealer {
         }
     }
 
-    public void customize(int x) {
+    public void customize(int x)
+    {
         colorNum = 0;
         loop = true;
+        Console.Clear();
+        player.personalCars[x].data();
         talkingDealer("It costs $1000 to change car color\n");
+        if (player.money.Amount < 1000)
+        {
+            talkingDealer("Im sorry, but ya broke");
+            player.actions("Cars, Personal, Sell, Customize, Get in");
+        }
         talkingDealer("Choose your color.\n");
-        for (int i = 0; i < CarColors.Count; i++) {
+        for (int i = 0; i < CarColors.Count; i++)
+        {
             Console.WriteLine(CarColors[i]);
         }
         Console.Write("\n");
-        input = Console.ReadLine();
-        while (loop) {
-            for (int l = 0; l < CarColors.Count; l++) {
-                if (input.ToLower() == CarColors[l].ToLower()) {
+        input = Console.ReadLine().ToLower();
+        while (loop)
+        {
+            for (int l = 0; l <= CarColors.Count && loop; l++)
+            {
+                if (l == CarColors.Count && input.ToLower() != CarColors[8].ToLower())
+                {
+                    player.actions("Cars, Personal, Sell, Customize, Get in");
+                }
+                else if (input.ToLower() == CarColors[l].ToLower())
+                {
+                    if (player.personalCars[x].Color == CarColors[l])
+                    {
+                        talkingDealer("\nBut your car is already " + CarColors[l].ToLower());
+                        player.actions("Cars, Personal, Sell, Customize, Get in");
+                    }
                     colorNum = l;
                     loop = false;
                 }
-                else if (l == CarColors.Count && input.ToLower() != CarColors[l].ToLower()) {
-                    player.actions("Cars, Personal, Sell, Customize, Get in");
-                }
             }
         }
-        for (int z = 0; z < randomCars.Count; z++) {
-            if (randomCars[z].ID == player.personalCars[x].ID) {
+        for (int z = 0; z < randomCars.Count; z++)
+        {
+            if (randomCars[z].ID == player.personalCars[x].ID)
+            {
                 randomCars[z].Color = CarColors[colorNum];
             }
-        }
-        if (player.money.Amount < 1000) {
-            talkingDealer("Im sorry, but ya broke");
-            player.actions("Cars, Personal, Sell, Customize, Get in");
         }
         player.money.spendMoney(1000);
         player.personalCars[x].Color = CarColors[colorNum];
@@ -147,9 +174,11 @@ class Dealer {
         player.actions("Cars, Personal, Sell, Customize, Get in");
     }
 
-    public void talkingDealer(string text) {
+    public void talkingDealer(string text)
+    {
         Console.ForegroundColor = ConsoleColor.Blue;
-        foreach (char c in text) {
+        foreach (char c in text)
+        {
             Console.Write(c);
         }
         Console.ForegroundColor = ConsoleColor.White;

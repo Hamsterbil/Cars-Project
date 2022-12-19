@@ -1,5 +1,5 @@
 class Credit {
-    public double Amount = 15000;
+    public double Amount = 1500000;
     public void spendMoney(double deducted) {
         Amount = Amount - deducted;
         Console.ForegroundColor = ConsoleColor.Red;
@@ -15,6 +15,9 @@ class Credit {
     }
 
     public void bal() {
-        Console.WriteLine("You have: $" + Amount + " moneys");
+        Console.Write("You have: ");
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine("$" + Amount);
+        Console.ForegroundColor = ConsoleColor.White;
     }
 }
