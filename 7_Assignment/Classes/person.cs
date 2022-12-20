@@ -1,13 +1,15 @@
 using System.Diagnostics;
 class Person
 {
-    private static readonly Dealer dealer = new Dealer();
-    public List<Car> personalCars = new List<Car>();
+    static Person player = new Person();
+    Dealer dealer = new Dealer();
+    public Credit money = new Credit();
+    Road road = new Road();
     public int insideCar;
     int i;
     string input;
     bool loop;
-    public Credit money = new Credit();
+    public List<Car> personalCars = new List<Car>();
 
     //ACTIONS IN THIS ORDER
     //Cars, New cars, Personal, Buy, Sell, Customize, Get in, Drive, Change gear, Accelerate, Turbo, Brake, Get out
@@ -35,10 +37,10 @@ class Person
                     else
                     {
                         dealer.showCars(0, true);
-                    }
-                    money.bal();
+                    }  
+                    player.money.bal();
                     dealer.talkingDealer("\nWould you like to purchase any of these cars?");
-                    actions("New Cars, Personal, Buy, Sell");
+                    player.actions("New Cars, Personal, Buy, Sell");
                     break;
 
                 case "new cars": /*
@@ -92,7 +94,7 @@ class Person
                                 Console.WriteLine("That is not a valid number");
                                 break;
                             }
-                            dealer.buy(int.Parse(input) - 1);
+                            dealer.buy(int.Parse(input) - 1, player);
                         }
                     }
                     break;
@@ -116,28 +118,28 @@ class Person
                         if (personalCars.Count > 1)
                         { 
                                 ownedCars();
-                                dealer.talkingDealer("\nWhat car would you like to sell? [1 - " + personalCars.Count + "]");
+                                dealer.talkingDealer("\nWhat car would you like to sell? [1 - " + personalCars.Count + "]\n");
                                 input = Console.ReadLine();
                                 if (int.TryParse(input, out i))
                                 {
                                     if (int.Parse(input) > personalCars.Count)
                                     {
-                                        Console.WriteLine("That is not a valid number");
+                                        Console.WriteLine("\nThat is not a valid number");
                                         break;
                                     }
                                     else if (int.Parse(input) < 1)
                                     {
-                                        Console.WriteLine("That is not a valid number");
+                                        Console.WriteLine("\nThat is not a valid number");
                                         break;
                                     }
-                                    dealer.sell(int.Parse(input) - 1);
+                                    dealer.sell(int.Parse(input) - 1, player);
                                 }
                             }
                         else if (personalCars.Count == 1)
                         {        
-                                Console.WriteLine("You sold:");
+                                Console.WriteLine("You sold:\n");
                                 personalCars[0].data();
-                                dealer.sell(0);
+                                dealer.sell(0, player);
                         }  
                     }
                     break;
@@ -152,7 +154,7 @@ class Person
                     if (personalCars.Count > 1)
                     {
                         ownedCars();
-                        dealer.talkingDealer("\nWhat car would you like to customize? [1 - " + personalCars.Count + "]");
+                        dealer.talkingDealer("\nWhat car would you like to customize? [1 - " + personalCars.Count + "]\n");
                         input = Console.ReadLine();
                         if (int.TryParse(input, out i))
                         {
@@ -166,13 +168,13 @@ class Person
                                 Console.WriteLine("That is not a valid number");
                                 break;
                             }
-                            dealer.customize(int.Parse(input) - 1);
+                            dealer.customize(int.Parse(input) - 1, player);
                         }
                         break;
                     }
                     else if (personalCars.Count == 1)
                     {
-                        dealer.customize(0);
+                        dealer.customize(0, player);
                     }
                     Console.WriteLine("You do not own any cars");
                     break;
@@ -189,7 +191,7 @@ class Person
                         if (personalCars.Count > 1)
                         {
                             ownedCars();
-                            dealer.talkingDealer("Which car would you like to get in? [1 - " + personalCars.Count + "]");
+                            dealer.talkingDealer("Which car would you like to get in? [1 - " + personalCars.Count + "]\n");
                             input = Console.ReadLine();
                             if (int.TryParse(input, out i))
                             {
@@ -227,9 +229,8 @@ class Person
                     {
                         if (personalCars[insideCar].isInside && personalCars.Count > 0)
                         {
-                            Console.WriteLine("You take the car for a drive and earn $1000");
-                            money.addMoney(1000);
-                            actions("Personal, Drive, Get out");
+                            road.Tick(player);
+                            actions("Cars, Personal");
                         }
                     }
                     Console.WriteLine("You are not inside any car");
@@ -314,7 +315,7 @@ class Person
                         if (personalCars[insideCar].isInside)
                         {
                             personalCars[insideCar].GetOut(personalCars[insideCar].Doors[0]);
-                            actions("Cars, Personal");
+                            actions("Cars, Personal, Get in");
                         }
                     }
                     Console.WriteLine("You are not inside any car");

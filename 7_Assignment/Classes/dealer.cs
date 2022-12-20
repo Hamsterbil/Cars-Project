@@ -9,8 +9,7 @@ class Dealer
     string input;
     bool loop;
     Random RNG = new Random();
-    private static readonly Person player = new Person();
-
+    static Dealer dealer = new Dealer();
     public List<Car> randomCars = new List<Car>();
     public static List<string> CarBrands = new List<string>() {
         "Volvo", "Volkswagen", "Toyota", "Ford", "Mercedes",
@@ -25,9 +24,9 @@ class Dealer
     #region Methods
     public void showCars(int i, bool showList)
     {
-        x = randomCars.Count;
+        x = this.randomCars.Count;
 
-        for (i = i + x; x < i; x = randomCars.Count)
+        for (i = i + x; x < i; x = this.randomCars.Count)
         {
             int brandNum = RNG.Next(0, 9);
             int colorNum = RNG.Next(0, 8);
@@ -42,26 +41,26 @@ class Dealer
             price = RNG.Next(10000, 100000);
             price = price % 10000 >= 5000 ? price + 10000 - price % 10000 : price - price % 10000;
 
-            randomCars.Add(new Car(CarBrands[brandNum], CarColors[colorNum], price, 4, 4, tireSize, enginePower, lightStrength, ID, false));
+            this.randomCars.Add(new Car(CarBrands[brandNum], CarColors[colorNum], price, 4, 4, tireSize, enginePower, lightStrength, ID, false));
         }
 
         if (showList == true)
         {
-            for (x = 0; x < randomCars.Count; x++)
+            for (x = 0; x < this.randomCars.Count; x++)
             {
-                if (randomCars[x].Bought == true)
+                if (this.randomCars[x].Bought == true)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                 }
                 Console.WriteLine(x + 1 + ". Car\n");
-                randomCars[x].data();
+                this.randomCars[x].data();
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("--------------------------------------\n");
             }
         }
     }
 
-    public void buy(int x)
+    public void buy(int x, Person player)
     {
         if (randomCars[x].Bought == true)
         {
@@ -95,34 +94,35 @@ class Dealer
         double reduced = player.personalCars.Last().Price * 0.1;
         player.personalCars.Last().Price = player.personalCars.Last().Price * 0.9;
 
-        Console.WriteLine("You purchased:");
+        Console.WriteLine("\nYou purchased:");
         player.personalCars.Last().data();
 
         Console.WriteLine("Price went down by:");
         Console.ForegroundColor = ConsoleColor.Red;
-        Console.Write("- $" + reduced + "\n");
+        Console.Write("- $" + reduced + "\n\n");
         Console.ForegroundColor = ConsoleColor.White;
 
-        Console.WriteLine("Your balance is now: $" + player.money.Amount);
+        player.money.bal();
         talkingDealer("\nThank you for your purchase. Would you like to take it for a test drive, or buy something else?\n");
         player.actions("Cars, Personal, Buy, Customize, Get in");
     }
 
-    public void sell(int x)
+    public void sell(int x, Person player)
     {
-        for (int z = 0; z < randomCars.Count; z++)
+        for (int z = 0; z < this.randomCars.Count; z++)
         {
             if (randomCars[z].ID == player.personalCars[x].ID)
             {
                 randomCars[z].Bought = false;
                 player.money.addMoney(player.personalCars[x].Price);
                 player.personalCars.RemoveAt(x);
+                Console.WriteLine("");
                 player.actions("Cars, Personal");
             }
         }
     }
 
-    public void customize(int x)
+    public void customize(int x, Person player)
     {
         colorNum = 0;
         loop = true;
@@ -169,6 +169,7 @@ class Dealer
             }
         }
         player.money.spendMoney(1000);
+        Console.WriteLine("\n");
         player.personalCars[x].Color = CarColors[colorNum];
         player.personalCars[x].data();
         player.actions("Cars, Personal, Sell, Customize, Get in");

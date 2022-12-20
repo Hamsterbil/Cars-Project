@@ -1,4 +1,5 @@
-﻿//CAR DEALER DRIVING "GAME"
+
+//CAR DEALER DRIVING "GAME"
 /*
 Actions:
     Drive:
@@ -56,51 +57,31 @@ Write action:
 ____
 
 */
-Road road = new Road();
-road.Tick();
-Console.ReadLine();
-road.Tick();
-Console.ReadLine();
-road.Tick();
-Console.ReadLine();
-road.Tick();
-Console.ReadLine();
-road.Tick();
-Console.ReadLine();
-road.Tick();
-Console.ReadLine();
 
 public class Road
 {
-    List<Cash> _cash = new List<Cash>();
-    List<Car> cars = new List<Car>();
-    List<Pedestrian> people = new List<Pedestrian>();
-	List<string> lines = new List<string>();
-	List<string> walkLines = new List<string>();
-
     private string[,] road;
     public string edgeHorizontal { get; set; }
-
-	public bool isInside = true; 
-
-	int width = 5;
 	int height = 11;
 
     public int _tick = 0;
+
+
+    List<string> roadLines = new List<string>();
+	List<string> walkLines = new List<string>();
     public Road()
     {
-        // road = new string[DimensionHori, DimensionVerti];
         edgeHorizontal = "    +---+---+---+---+---+";
 
 		for (int x = 0; x < height; x++)
         {
             if (x % 2 == 0)
             {
-                this.lines.Add("     |     ");
+                this.roadLines.Add("     |     ");
             }
             else
             {
-                this.lines.Add("           ");
+                this.roadLines.Add("           ");
             }
         }
 
@@ -109,6 +90,12 @@ public class Road
             this.walkLines.Add("  ");
         }
     }
+
+    public void Drive()
+    {
+
+    }
+
 
     public void Tick()
     {
@@ -127,11 +114,11 @@ public class Road
 		{   
             if (carData[carPos] == "C")
             {
-                bal = bal - 5000;
+                player.bal = player.bal - 5000;
             }
             else if (carData[carPos] == "$")
             {
-                bal = bal + 500;
+                player.bal = player.bal + 500;
             }
 
             if (carData[5] == carData[carPos])
@@ -144,27 +131,27 @@ public class Road
             }
 
             carData[carPos] = "X";
-            lines[10] = "{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}";
-            lines[1] = "{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}";
-            lines[10] = string.Format(lines[10], data);
-            lines[1] = string.Format(lines[1], carData);
+            roadLines[10] = "{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}";
+            roadLines[1] = "{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}";
+            roadLines[10] = string.Format(roadLines[10], data);
+            roadLines[1] = string.Format(roadLines[1], carData);
 
             //Display road with everything on
 			Console.Clear();
 			Console.WriteLine("      1   2   3   4   5");
         	Console.Write(edgeHorizontal + "\n");
 			Console.WriteLine(
-			" 10 |" + walkLines[10] + "||" + lines[10] + "||" + walkLines[10] + "|      Speed: " /*+ _speed*/ + "\n" +
-			"  9 +" + walkLines[9] + "||" + lines[9] + "||" + walkLines[9] + "+      Current gear: " /*+ CurrentGear*/ + "\n" + 
-            "  8 |" + walkLines[8] + "||" + lines[8] + "||" + walkLines[8] + "|      Turbo left: " /*+ turboTank*/ + "\n" +
-            "  7 +" + walkLines[7] + "||" + lines[7] + "||" + walkLines[7] + "+      Balance: " + bal + "\n" +
-            "  6 |" + walkLines[6] + "||" + lines[6] + "||" + walkLines[6] + "|\n" +
-            "  5 +" + walkLines[5] + "||" + lines[5] + "||" + walkLines[5] + "+      Actions:" + "\n" +
-            "  4 |" + walkLines[4] + "||" + lines[4] + "||" + walkLines[4] + "|         [" /*+ usedActions*/ + ", Exit]" + "\n" +
-            "  3 +" + walkLines[3] + "||" + lines[3] + "||" + walkLines[3] + "+      " /*+ addMoney*/ + "\n" +
-            "  2 |" + walkLines[2] + "||" + lines[2] + "||" + walkLines[2] + "|\n" +
-            "  1 +" + walkLines[1] + "||" + lines[1] + "||" + walkLines[1] + "+\n" +
-            "  0 |" + walkLines[0] + "||" + lines[0] + "||" + walkLines[0] + "|"
+			" 10 |" + walkLines[10] + "||" + roadLines[10] + "||" + walkLines[10] + "|      Speed: " /*+ _speed*/ + "\n" +
+			"  9 +" + walkLines[9] + "||" + roadLines[9] + "||" + walkLines[9] + "+      Current gear: " /*+ CurrentGear*/ + "\n" + 
+            "  8 |" + walkLines[8] + "||" + roadLines[8] + "||" + walkLines[8] + "|      Turbo left: " /*+ turboTank*/ + "\n" +
+            "  7 +" + walkLines[7] + "||" + roadLines[7] + "||" + walkLines[7] + "+      Balance: " + bal + "\n" +
+            "  6 |" + walkLines[6] + "||" + roadLines[6] + "||" + walkLines[6] + "|\n" +
+            "  5 +" + walkLines[5] + "||" + roadLines[5] + "||" + walkLines[5] + "+      Actions:" + "\n" +
+            "  4 |" + walkLines[4] + "||" + roadLines[4] + "||" + walkLines[4] + "|         [" /*+ usedActions*/ + ", Exit]" + "\n" +
+            "  3 +" + walkLines[3] + "||" + roadLines[3] + "||" + walkLines[3] + "+      " /*+ addMoney*/ + "\n" +
+            "  2 |" + walkLines[2] + "||" + roadLines[2] + "||" + walkLines[2] + "|\n" +
+            "  1 +" + walkLines[1] + "||" + roadLines[1] + "||" + walkLines[1] + "+\n" +
+            "  0 |" + walkLines[0] + "||" + roadLines[0] + "||" + walkLines[0] + "|"
             );
 			Console.Write(edgeHorizontal);
 			Console.WriteLine("\n\n" + _tick);
@@ -228,41 +215,32 @@ public class Road
 
             if (_tick == 0)
             {
-                line0save = lines[3];
-                line0save1 = lines[2];
+                line0save = roadLines[3];
+                line0save1 = roadLines[2];
             }
 
             if (_tick % 2 != 0)
             {
-                line0save = lines[2];
-                lines[0] = line0save1;
+                line0save = roadLines[2];
+                roadLines[0] = line0save1;
             }
             else if (_tick % 2 == 0)
             {
-                line0save1 = lines[2];
-                lines[0] = line0save;
+                line0save1 = roadLines[2];
+                roadLines[0] = line0save;
             }    
 
-            carData = lines[2].ToArray().Select( c => c.ToString()).ToArray();
-            lines[2] = lines[3];
-			lines[3] = lines[4];
-			lines[4] = lines[5];
-			lines[5] = lines[6];
-			lines[6] = lines[7];
-			lines[7] = lines[8];
-			lines[8] = lines[9];
-			lines[9] = lines[10];
+            carData = roadLines[2].ToArray().Select( c => c.ToString()).ToArray();
+            roadLines[2] = roadLines[3];
+			roadLines[3] = roadLines[4];
+			roadLines[4] = roadLines[5];
+			roadLines[5] = roadLines[6];
+			roadLines[6] = roadLines[7];
+			roadLines[7] = roadLines[8];
+			roadLines[8] = roadLines[9];
+			roadLines[9] = roadLines[10];
 
             _tick++;
         }    
-
-    }       
-	public class Cash
-	{
-
-	}
-	public class Pedestrian
-	{
-
-	}
+    }
 }
