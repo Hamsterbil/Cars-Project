@@ -1,8 +1,20 @@
 {
   "version": 2,
+<<<<<<< Updated upstream
   "dgSpecHash": "aY2/0IeEkRpWB4kGESYzh1vDlDTxYA1rnwglUfBGvtfCUoz/n1bm7LGkJnb0xkPBE7EZzp+vVHm6pkbSS3xK2A==",
   "success": true,
   "projectFilePath": "C:\\Users\\gunna\\OneDrive\\OneDriveTing\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\Test driving game\\Test driving game.csproj",
   "expectedPackageFiles": [],
+=======
+  "dgSpecHash": "b+qc9B4Z9v33fFaItoWjSGfTFPJsm4COl/F/HTCYGwybDRszYCVUMxiWukiXkktgLW/6zwN5dEJkKtWBdmDAHA==",
+  "success": true,
+  "projectFilePath": "F:\\Skole\\Programmering\\Cars-Project\\Test driving game\\Test driving game.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gunna\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.10\\microsoft.netcore.app.ref.6.0.10.nupkg.sha512",
+    "C:\\Users\\gunna\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.10\\microsoft.windowsdesktop.app.ref.6.0.10.nupkg.sha512",
+    "C:\\Users\\gunna\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.10\\microsoft.aspnetcore.app.ref.6.0.10.nupkg.sha512",
+    "C:\\Users\\gunna\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.10\\microsoft.netcore.app.host.win-x64.6.0.10.nupkg.sha512"
+  ],
+>>>>>>> Stashed changes
   "logs": []
 }

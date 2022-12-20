@@ -58,17 +58,6 @@ ____
 */
 Road road = new Road();
 road.Tick();
-Console.ReadLine();
-road.Tick();
-Console.ReadLine();
-road.Tick();
-Console.ReadLine();
-road.Tick();
-Console.ReadLine();
-road.Tick();
-Console.ReadLine();
-road.Tick();
-Console.ReadLine();
 
 public class Road
 {
@@ -151,6 +140,15 @@ public class Road
 
             lines[1] = "{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}";
             lines[1] = string.Format(lines[1], carData);
+            lines[2] = string.Format(lines[10], data2);
+            lines[3] = string.Format(lines[10], data3);
+            lines[4] = string.Format(lines[10], data4);
+            lines[5] = string.Format(lines[10], data5);
+            lines[6] = string.Format(lines[10], data6);
+            lines[7] = string.Format(lines[10], data7);
+            lines[8] = string.Format(lines[10], data8);
+            lines[9] = string.Format(lines[10], data9);
+            lines[10] = string.Format(lines[10], data);
 
 
             
