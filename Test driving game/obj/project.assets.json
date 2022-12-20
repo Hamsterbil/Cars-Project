@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gunna\\OneDrive\\OneDrive Ting\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\Test driving game\\Test driving game.csproj",
+      "projectUniqueName": "C:\\Users\\gunna\\OneDrive\\OneDriveTing\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\Test driving game\\Test driving game.csproj",
       "projectName": "Test driving game",
-      "projectPath": "C:\\Users\\gunna\\OneDrive\\OneDrive Ting\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\Test driving game\\Test driving game.csproj",
+      "projectPath": "C:\\Users\\gunna\\OneDrive\\OneDriveTing\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\Test driving game\\Test driving game.csproj",
       "packagesPath": "C:\\Users\\gunna\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gunna\\OneDrive\\OneDrive Ting\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\Test driving game\\obj\\",
+      "outputPath": "C:\\Users\\gunna\\OneDrive\\OneDriveTing\\Documents\\HB\\2.UV\\Programmering\\Github\\Car dealership\\Test driving game\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
