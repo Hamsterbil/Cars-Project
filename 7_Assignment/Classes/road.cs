@@ -124,7 +124,7 @@ class Road
                     Environment.Exit(0);
                 }
                 player.money.Amount = 0;
-                player.actions("Cars, Personal");
+                player.actions("Cars, Personal", player);
             }
             if (carData[carPos] == "C")
             {
