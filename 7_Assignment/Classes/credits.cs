@@ -1,5 +1,5 @@
 class Credit {
-    public double Amount = 10000;
+    public double Amount = 100000;
     public void spendMoney(double deducted) {
         Amount = Amount - deducted;
         Console.ForegroundColor = ConsoleColor.Red;

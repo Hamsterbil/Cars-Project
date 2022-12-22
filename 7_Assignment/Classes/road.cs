@@ -66,14 +66,15 @@ class Road
 	int height = 11;
     int _tick;
     int carPos; 
+    int tiles;
     int l;
     int dolladolla;
     bool loop;
     string edgeHorizontal { get; set; }
     string line0save = "";
     string line0save1 = "";    
-    string input = "";
-    string[] data = {" "," "," "," "," ","|"," "," "," "," "," "};        
+    string input = "";   
+    string[] data = {" "," "," "," "," ","|"," "," "," "," "," "}; 
     string[] carData = {" "," "," "," "," "," "," "," "," "," "," "};
     string[] noCarData = {" "," "," "," "," ","|"," "," "," "," "," "};
 
@@ -84,7 +85,7 @@ class Road
     {
         edgeHorizontal = "    +---+---+---+---+---+";
 
-		for (int x = 0; x < height; x++)
+		for (int x = 0; x < height + 4; x++)
         {
             if (x % 2 == 0)
             {
@@ -110,6 +111,7 @@ class Road
 
         while (player.personalCars[car].isInside)
 		{   
+            tiles = 0;
             dolladolla = 0;
             loop = true;
 
@@ -155,29 +157,43 @@ class Road
 			Console.Write(
 			" 10 |" + walkLines[10] + "||" + roadLines[10] + "||" + walkLines[10] + "|      Speed: " + player.personalCars[car]._speed  + "\n" +
 			"  9 +" + walkLines[9] + "||" + roadLines[9] + "||" + walkLines[9] + "+      Current gear: " + player.personalCars[car].CurrentGear + "\n" + 
-            "  8 |" + walkLines[8] + "||" + roadLines[8] + "||" + walkLines[8] + "|      Balance: " + player.money.Amount + "\n" +
-            "  7 +" + walkLines[7] + "||" + roadLines[7] + "||" + walkLines[7] + "+\n" +      
-            "  6 |" + walkLines[6] + "||" + roadLines[6] + "||" + walkLines[6] + "|      Inputs:" + "\n" +
-            "  5 +" + walkLines[5] + "||" + roadLines[5] + "||" + walkLines[5] + "+      [Drive (\x2191), Left (\x2190), Right (\x2192), Change Gear (W), Accelerate (A), Brake (\x2193)]\n" +
-            "  4 |" + walkLines[4] + "||" + roadLines[4] + "||" + walkLines[4] + "|\n" +
-            "  3 +" + walkLines[3] + "||" + roadLines[3] + "||" + walkLines[3] + "+      "); 
+            "  8 |" + walkLines[8] + "||" + roadLines[8] + "||" + walkLines[8] + "|      Balance: " + player.money.Amount + " ");
             
             if (dolladolla == 1)
             {
                 player.money.addMoney(10 * player.personalCars[car]._speed);
-                dolladolla = 0;
             }
             else if (dolladolla == -1)
             {
-                player.money.spendMoney(5000);
-                dolladolla = 0;
+                player.money.spendMoney(5000);                
             }
-            Console.WriteLine(   
-            "\n" +
-            "  2 |" + walkLines[2] + "||" + roadLines[2] + "||" + walkLines[2] + "|\n" +
+            
+            Console.Write( 
+            "\n  7 +" + walkLines[7] + "||" + roadLines[7] + "||" + walkLines[7] + "+\n" +      
+            "  6 |" + walkLines[6] + "||" + roadLines[6] + "||" + walkLines[6] + "|      [Drive (\x2191), Left (\x2190), Right (\x2192), Change Gear (W), Accelerate (A), Brake (\x2193)]\n" +
+            "  5 +" + walkLines[5] + "||" + roadLines[5] + "||" + walkLines[5] + "+  "); 
+            if (tiles == 3)
+            {
+                Console.WriteLine("  <---");
+            }
+            Console.Write("\n  4 |" + walkLines[4] + "||" + roadLines[4] + "||" + walkLines[4] + "|");
+            if (tiles == 2)
+            {
+                Console.WriteLine("  <---");
+            }
+            Console.Write("\n  3 +" + walkLines[3] + "||" + roadLines[3] + "||" + walkLines[3] + "+");
+            if (tiles == 1)
+            {
+                Console.WriteLine("  <---");
+            }
+            Console.Write("\n  2 |" + walkLines[2] + "||" + roadLines[2] + "||" + walkLines[2] + "|");
+            if (tiles == 0)
+            {
+                Console.WriteLine("  <---");
+            }
+            Console.WriteLine(
             "  1 +" + walkLines[1] + "||" + roadLines[1] + "||" + walkLines[1] + "+\n" +
-            "  0 |" + walkLines[0] + "||" + roadLines[0] + "||" + walkLines[0] + "|"
-            );
+            "  0 |" + walkLines[0] + "||" + roadLines[0] + "||" + walkLines[0] + "|");
 			Console.Write(edgeHorizontal);
 			Console.WriteLine("\n\n" + _tick);
             //--------------------------------------------
@@ -189,38 +205,33 @@ class Road
 
             while (loop)
             {
-                Console.WriteLine("\nPress an input");
+                Console.WriteLine("\nPress a valid input");
                 ConsoleKey key = Console.ReadKey(false).Key;
                 switch (key)
                 {
                     case ConsoleKey.LeftArrow:
-                        if (carPos > 0)
-                        {
-                            if (player.personalCars[car]._speed > 0)
-                            {
-                            carPos = carPos - 1;
-                            loop = false;
-                            }
-                        }
-                        else
+                        if (carPos == 0)
                         {
                             Console.WriteLine("\nWatch out you don't crash");
-                        }
+                            break;
+                        }                        
+                        if (player.personalCars[car]._speed > 0)
+                            {
+                                carPos = carPos - 1;
+                                loop = false;
+                            }
                         break;
 
                     case ConsoleKey.RightArrow:
-                        if (carPos < 10)
+                        if (carPos == 10)
                         {
-                            if (player.personalCars[car]._speed > 0)
+                            Console.WriteLine("\nWatch out you don't crash");
+                        }
+                        if (player.personalCars[car]._speed > 0)
                             {
                             carPos = carPos + 1;
                             loop = false;
                             }
-                        }
-                        else
-                        {
-                            Console.WriteLine("\nWatch out you don't crash");
-                        }
                         break;
 
                     case ConsoleKey.UpArrow:
@@ -330,20 +341,33 @@ class Road
                 }
             }
 
+            if (player.personalCars[car]._speed > 30f && player.personalCars[car]._speed <= 60f)
+            {
+                tiles = 1;
+            }
+            else if (player.personalCars[car]._speed > 60f && player.personalCars[car]._speed <= 130f)
+            {
+                tiles = 2;    
+            }
+            else if (player.personalCars[car]._speed > 130f)
+            {
+                tiles = 3;
+            }
+
+
     // >0 = 1 tile pr tick
     // >30 = 2 tiles pr tick
     // >60 = 3 tiles pr tick
     // >100 = 4 tiles pr tick
 
-            carData = roadLines[2].ToArray().Select(c => c.ToString()).ToArray();
-            roadLines[2] = roadLines[3];
-			roadLines[3] = roadLines[4];
-			roadLines[4] = roadLines[5];
-			roadLines[5] = roadLines[6];
-			roadLines[6] = roadLines[7];
-			roadLines[7] = roadLines[8];
-			roadLines[8] = roadLines[9];
-			roadLines[9] = roadLines[10];
+            carData = roadLines[2 + tiles].ToArray().Select(c => c.ToString()).ToArray();
+
+            int zz;
+            int p;
+            for (zz = 2, p = 3; zz < height + tiles; zz++, p++)
+            {
+                roadLines[zz + tiles] = roadLines[p + tiles];
+            }
             _tick++;
         }    
     }

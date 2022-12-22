@@ -122,7 +122,7 @@ class Person
                         if (personalCars.Count > 1)
                         { 
                                 ownedCars();
-                                dealer.talkingDealer("\nWhat car would you like to sell? [1 - " + personalCars.Count + "]", dealer);
+                                dealer.talkingDealer("\nWhat car would you like to sell? [1 - " + personalCars.Count + "]\n", dealer);
                                 input = Console.ReadLine();
                                 if (int.TryParse(input, out i))
                                 {
@@ -158,7 +158,7 @@ class Person
                     if (personalCars.Count > 1)
                     {
                         ownedCars();
-                        dealer.talkingDealer("\nWhat car would you like to customize? [1 - " + personalCars.Count + "]", dealer);
+                        dealer.talkingDealer("\nWhat car would you like to customize? [1 - " + personalCars.Count + "]\n", dealer);
                         input = Console.ReadLine();
                         if (int.TryParse(input, out i))
                         {
@@ -195,7 +195,7 @@ class Person
                         if (personalCars.Count > 1)
                         {
                             ownedCars();
-                            dealer.talkingDealer("Which car would you like to get in? [1 - " + personalCars.Count + "]", dealer);
+                            dealer.talkingDealer("Which car would you like to get in? [1 - " + personalCars.Count + "]\n", dealer);
                             input = Console.ReadLine();
                             if (int.TryParse(input, out i))
                             {
