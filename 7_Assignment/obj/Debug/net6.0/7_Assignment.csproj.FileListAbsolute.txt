@@ -13,3 +13,18 @@ C:\Users\gunna\OneDrive\OneDriveTing\Documents\HB\2.UV\Programmering\Github\Car 
 C:\Users\gunna\OneDrive\OneDriveTing\Documents\HB\2.UV\Programmering\Github\Car dealership\7_Assignment\obj\Debug\net6.0\7_Assignment.pdb
 C:\Users\gunna\OneDrive\OneDriveTing\Documents\HB\2.UV\Programmering\Github\Car dealership\7_Assignment\obj\Debug\net6.0\7_Assignment.genruntimeconfig.cache
 C:\Users\gunna\OneDrive\OneDriveTing\Documents\HB\2.UV\Programmering\Github\Car dealership\7_Assignment\obj\Debug\net6.0\ref\7_Assignment.dll
+F:\Skole\Programmering\Cars-Project\7_Assignment\bin\Debug\net6.0\7_Assignment.exe
+F:\Skole\Programmering\Cars-Project\7_Assignment\bin\Debug\net6.0\7_Assignment.deps.json
+F:\Skole\Programmering\Cars-Project\7_Assignment\bin\Debug\net6.0\7_Assignment.runtimeconfig.json
+F:\Skole\Programmering\Cars-Project\7_Assignment\bin\Debug\net6.0\7_Assignment.dll
+F:\Skole\Programmering\Cars-Project\7_Assignment\bin\Debug\net6.0\7_Assignment.pdb
+F:\Skole\Programmering\Cars-Project\7_Assignment\obj\Debug\net6.0\7_Assignment.csproj.AssemblyReference.cache
+F:\Skole\Programmering\Cars-Project\7_Assignment\obj\Debug\net6.0\7_Assignment.GeneratedMSBuildEditorConfig.editorconfig
+F:\Skole\Programmering\Cars-Project\7_Assignment\obj\Debug\net6.0\7_Assignment.AssemblyInfoInputs.cache
+F:\Skole\Programmering\Cars-Project\7_Assignment\obj\Debug\net6.0\7_Assignment.AssemblyInfo.cs
+F:\Skole\Programmering\Cars-Project\7_Assignment\obj\Debug\net6.0\7_Assignment.csproj.CoreCompileInputs.cache
+F:\Skole\Programmering\Cars-Project\7_Assignment\obj\Debug\net6.0\7_Assignment.dll
+F:\Skole\Programmering\Cars-Project\7_Assignment\obj\Debug\net6.0\refint\7_Assignment.dll
+F:\Skole\Programmering\Cars-Project\7_Assignment\obj\Debug\net6.0\7_Assignment.pdb
+F:\Skole\Programmering\Cars-Project\7_Assignment\obj\Debug\net6.0\7_Assignment.genruntimeconfig.cache
+F:\Skole\Programmering\Cars-Project\7_Assignment\obj\Debug\net6.0\ref\7_Assignment.dll

@@ -150,6 +150,20 @@ class Road
             roadLines[10] = string.Format(roadLines[10], data);
             roadLines[1] = string.Format(roadLines[1], carData);
             roadLines[0] = string.Format(roadLines[0], noCarData);
+
+            if (player.personalCars[car]._speed > 30f && player.personalCars[car]._speed <= 60f)
+            {
+                tiles = 1;
+            }
+            else if (player.personalCars[car]._speed > 60f && player.personalCars[car]._speed <= 130f)
+            {
+                tiles = 2;    
+            }
+            else if (player.personalCars[car]._speed > 130f)
+            {
+                tiles = 3;
+            }
+
             //Display road with everything on
 			Console.Clear();
 			Console.WriteLine("      1   2   3   4   5");
@@ -215,7 +229,7 @@ class Road
                             Console.WriteLine("\nWatch out you don't crash");
                             break;
                         }                        
-                        if (player.personalCars[car]._speed > 0)
+                        else if (player.personalCars[car]._speed > 0)
                             {
                                 carPos = carPos - 1;
                                 loop = false;
@@ -227,7 +241,7 @@ class Road
                         {
                             Console.WriteLine("\nWatch out you don't crash");
                         }
-                        if (player.personalCars[car]._speed > 0)
+                        else if (player.personalCars[car]._speed > 0)
                             {
                             carPos = carPos + 1;
                             loop = false;
@@ -341,20 +355,6 @@ class Road
                 }
             }
 
-            if (player.personalCars[car]._speed > 30f && player.personalCars[car]._speed <= 60f)
-            {
-                tiles = 1;
-            }
-            else if (player.personalCars[car]._speed > 60f && player.personalCars[car]._speed <= 130f)
-            {
-                tiles = 2;    
-            }
-            else if (player.personalCars[car]._speed > 130f)
-            {
-                tiles = 3;
-            }
-
-
     // >0 = 1 tile pr tick
     // >30 = 2 tiles pr tick
     // >60 = 3 tiles pr tick
@@ -362,12 +362,22 @@ class Road
 
             carData = roadLines[2 + tiles].ToArray().Select(c => c.ToString()).ToArray();
 
-            int zz;
-            int p;
-            for (zz = 2, p = 3; zz < height + tiles; zz++, p++)
-            {
-                roadLines[zz + tiles] = roadLines[p + tiles];
-            }
+            // int zz;
+            // int p;
+            // for (zz = 2, p = 3; zz < height + tiles; zz++, p++)
+            // {
+            //     roadLines[zz + tiles] = roadLines[p + tiles];
+            // }
+
+            roadLines[2] = roadLines[3];
+            roadLines[3] = roadLines[4];
+            roadLines[4] = roadLines[5];
+            roadLines[5] = roadLines[6];
+            roadLines[6] = roadLines[7];
+            roadLines[7] = roadLines[8];
+            roadLines[8] = roadLines[9];
+            roadLines[9] = roadLines[10];
+
             _tick++;
         }    
     }
