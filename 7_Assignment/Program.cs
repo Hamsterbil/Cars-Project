@@ -1,4 +1,5 @@
-﻿Dealer dealer = new Dealer();
-Person player = new Person();
-dealer.talkingDealer("Welcome to our Car Dealership TM.");
-player.actions("Cars, Personal");
+﻿Dealer dealer = new Dealer("Mr White");
+Person player = new Person("Bobby");
+
+dealer.talkingDealer("Welcome to our Car Dealership TM.", dealer);
+player.actions("Cars, Personal", player);

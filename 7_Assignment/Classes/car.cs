@@ -1,8 +1,8 @@
 class Car
 {
     #region Fields
-    protected int CurrentGear = 0;
-    private float _speed = 0f;
+    public int CurrentGear = 0;
+    public float _speed = 0f;
     internal int _revolutions = 0;
     public string Brand;
     public string Color;
@@ -14,6 +14,7 @@ class Car
     public bool Bought;
     public bool isInside;
 
+    Random RNG = new Random();
     public List<Door> Doors = new List<Door>();
     public List<Tire> Tires = new List<Tire>();
     public List<Light> Lights = new List<Light>();
@@ -46,9 +47,9 @@ class Car
     #endregion
 
     #region Methods
-    public void Drive()
+    public void Drive(float forceParameter)
     {
-
+        _speed = _speed + forceParameter;
     }
 
     public void Brake()
@@ -59,11 +60,6 @@ class Car
     public void Accelerate(float forceParameter)
     {
         _speed = _speed + forceParameter;
-    }
-
-    public void Turbo(float forceParameter)
-    {
-        _speed = _speed * forceParameter;
     }
 
     public int ChangeGear(int amount)
