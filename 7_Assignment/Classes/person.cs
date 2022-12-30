@@ -1,17 +1,24 @@
 using System.Diagnostics;
 class Person
 {
-    private static readonly Dealer dealer = new Dealer();
+    private static Dealer dealer = new Dealer("Mr White");
+    Road road = new Road();    
     public List<Car> personalCars = new List<Car>();
+
     public int insideCar;
     int i;
     string input;
     bool loop;
     public Credit money = new Credit();
 
+    public Person(string name)
+    {
+        string Name = name;
+    }
+
     //ACTIONS IN THIS ORDER
     //Cars, New cars, Personal, Buy, Sell, Customize, Get in, Drive, Change gear, Accelerate, Turbo, Brake, Get out
-    public void actions(string usedActions)
+    public void actions(string usedActions, Person player)
     {
         //Loop whenever wrong input
         loop = true;
@@ -26,19 +33,18 @@ class Person
                 - Display balance
                 - Display actions   */
                     Console.Clear();
-                    checkIfInsideCar();
-                    if (dealer.i == 0)
+                    checkIfInsideCar(player);
+                    if (dealer.randomCars.Count == 0)
                     {
-                        dealer.showCars(5, true);
-                        dealer.i++;
+                        dealer.showCars(5, true, dealer);
                     }
                     else
                     {
-                        dealer.showCars(0, true);
+                        dealer.showCars(0, true, dealer);
                     }
                     money.bal();
-                    dealer.talkingDealer("\nWould you like to purchase any of these cars?");
-                    actions("New Cars, Personal, Buy, Sell");
+                    dealer.talkingDealer("\nWould you like to purchase any of these cars?", dealer);
+                    actions("New Cars, Personal, Buy, Sell", player);
                     break;
 
                 case "new cars": /*
@@ -46,12 +52,12 @@ class Person
                 - Create 5 new cars in the list
                 - Display actions   */
                     Console.Clear();
-                    checkIfInsideCar();
+                    checkIfInsideCar(player);
                     dealer.randomCars.Clear();
-                    dealer.showCars(5, true);
+                    dealer.showCars(5, true, dealer);
                     money.bal();
-                    dealer.talkingDealer("\nWould you like to purchase any of these cars?");
-                    actions("New Cars, Personal, Buy, Sell");
+                    dealer.talkingDealer("\nWould you like to purchase any of these cars?", dealer);
+                    actions("New Cars, Personal, Buy, Sell", player);
                     break;
 
                 case "personal": /*
@@ -68,7 +74,7 @@ class Person
                     {
                         Console.WriteLine("You do not own any cars.");
                     }
-                    actions("Cars, Sell, Customize, Get in");
+                    actions("Cars, Sell, Customize, Get in", player);
                     break;
 
                 case "buy": /*
@@ -77,8 +83,8 @@ class Person
                 - Display actions   */
                     if (dealer.randomCars.Count > 0)
                     {
-                        checkIfInsideCar();
-                        dealer.talkingDealer("\nPlease select your car: [1 - " + dealer.randomCars.Count + "]\n");
+                        checkIfInsideCar(player);
+                        dealer.talkingDealer("\nPlease select your car: [1 - " + dealer.randomCars.Count + "]\n", dealer);
                         input = Console.ReadLine();
                         if (int.TryParse(input, out i))
                         {
@@ -92,7 +98,7 @@ class Person
                                 Console.WriteLine("That is not a valid number");
                                 break;
                             }
-                            dealer.buy(int.Parse(input) - 1);
+                            dealer.buy(int.Parse(input) - 1, player, dealer);
                         }
                     }
                     break;
@@ -103,20 +109,20 @@ class Person
                 - If they own 1 car (chooses automatically), sell
                 - Display actions   */
                     Console.Clear();
-                    checkIfInsideCar();
+                    checkIfInsideCar(player);
                     if (personalCars.Count == 0)
                     {
                         Console.WriteLine("You do not own any cars");
                         break;
                     }
-                    dealer.talkingDealer("Are you sure you would like to sell a car?\n");
+                    dealer.talkingDealer("Are you sure you would like to sell a car?\n", dealer);
                     input = Console.ReadLine();
                     if (input.ToLower() == "yes")
                     {
                         if (personalCars.Count > 1)
                         { 
                                 ownedCars();
-                                dealer.talkingDealer("\nWhat car would you like to sell? [1 - " + personalCars.Count + "]");
+                                dealer.talkingDealer("\nWhat car would you like to sell? [1 - " + personalCars.Count + "]\n", dealer);
                                 input = Console.ReadLine();
                                 if (int.TryParse(input, out i))
                                 {
@@ -130,14 +136,14 @@ class Person
                                         Console.WriteLine("That is not a valid number");
                                         break;
                                     }
-                                    dealer.sell(int.Parse(input) - 1);
+                                    dealer.sell(int.Parse(input) - 1, player);
                                 }
                             }
                         else if (personalCars.Count == 1)
                         {        
                                 Console.WriteLine("You sold:");
                                 personalCars[0].data();
-                                dealer.sell(0);
+                                dealer.sell(0, player);
                         }  
                     }
                     break;
@@ -148,11 +154,11 @@ class Person
                 - If they own 1 car (chooses automatically), customize
                 - Display actions   */
                     Console.Clear();
-                    checkIfInsideCar();
+                    checkIfInsideCar(player);
                     if (personalCars.Count > 1)
                     {
                         ownedCars();
-                        dealer.talkingDealer("\nWhat car would you like to customize? [1 - " + personalCars.Count + "]");
+                        dealer.talkingDealer("\nWhat car would you like to customize? [1 - " + personalCars.Count + "]\n", dealer);
                         input = Console.ReadLine();
                         if (int.TryParse(input, out i))
                         {
@@ -166,13 +172,13 @@ class Person
                                 Console.WriteLine("That is not a valid number");
                                 break;
                             }
-                            dealer.customize(int.Parse(input) - 1);
+                            dealer.customize(int.Parse(input) - 1, player, dealer);
                         }
                         break;
                     }
                     else if (personalCars.Count == 1)
                     {
-                        dealer.customize(0);
+                        dealer.customize(0, player, dealer);
                     }
                     Console.WriteLine("You do not own any cars");
                     break;
@@ -185,11 +191,11 @@ class Person
                     Console.Clear();
                     if (personalCars.Count > 0)
                     {
-                        checkIfInsideCar();
+                        checkIfInsideCar(player);
                         if (personalCars.Count > 1)
                         {
                             ownedCars();
-                            dealer.talkingDealer("Which car would you like to get in? [1 - " + personalCars.Count + "]");
+                            dealer.talkingDealer("Which car would you like to get in? [1 - " + personalCars.Count + "]\n", dealer);
                             input = Console.ReadLine();
                             if (int.TryParse(input, out i))
                             {
@@ -205,18 +211,19 @@ class Person
                                 }
                                 insideCar = int.Parse(input) - 1;
                                 personalCars[insideCar].GetIn(personalCars[insideCar].Doors[0]);
-                                actions("Personal, Drive, Get out");
+                                actions("Personal, Drive, Get out", player);
                             }
                             break;
                         }
                         else if (personalCars.Count == 1)
                         {
                             personalCars[0].GetIn(personalCars[0].Doors[0]);
-                            actions("Personal, Drive, Get out");
+                            actions("Personal, Drive, Get out", player);
                         }
                     }
                     Console.WriteLine("You do not own any cars");
                     break;
+
 
                 case "drive": /*
                 - Check if player owns cars
@@ -227,83 +234,12 @@ class Person
                     {
                         if (personalCars[insideCar].isInside && personalCars.Count > 0)
                         {
-                            Console.WriteLine("You take the car for a drive and earn $1000");
-                            money.addMoney(1000);
-                            actions("Personal, Drive, Get out");
+                            road.Tick(player);
+                            actions("Cars, Personal", player);
                         }
                     }
                     Console.WriteLine("You are not inside any car");
                     break;
-
-                // if (personalCars[insideCar].isInside)
-                // {
-                //     personalCars[insideCar].Drive();
-                // }
-                // else
-                // {
-                //     Console.WriteLine("You are not in your car");
-                //     break;
-                // }
-
-                //     actions("Drive, Change gear, Accelerate, Brake");
-                //     break;
-
-                // case "change gear": //NOT MADE YET
-                //     if (personalCars[insideCar].isInside)
-                //     {
-                //         personalCars[insideCar].ChangeGear(int.Parse(Console.ReadLine()));
-                //     }
-                //     else
-                //     {
-                //         Console.WriteLine("You are not in your car");
-                //         break;
-                //     }
-
-                //     actions("Drive, Change gear, Accelerate, Brake");
-                //     break;
-
-                // case "accelerate": //NOT MADE YET
-                //     if (personalCars[insideCar].isInside)
-                //     {
-                //         personalCars[insideCar].Accelerate(0);
-                //     }
-                //     else
-                //     {
-                //         Console.WriteLine("You are not in your car");
-                //         break;
-                //     }
-
-                //     actions("Drive, Change gear, Accelerate, Turbo, Brake");
-                //     break;
-
-                // case "turbo": //NOT MADE YET
-                //     if (personalCars[insideCar].isInside)
-                //     {
-                //         personalCars[insideCar].Turbo(0);
-                //     }
-                //     else
-                //     {
-                //         Console.WriteLine("You are not in your car");
-                //         break;
-                //     }
-
-                //     actions("Drive, Change gear, Accelerate, Brake");
-                //     break;
-
-                // case "brake": //NOT MADE YET
-                // 
-                //     if (personalCars[insideCar].isInside)
-                //     {
-                //         personalCars[insideCar].Brake();
-                //     }
-                //     else
-                //     {
-                //         Console.WriteLine("You are not in your car");
-                //         break;
-                //     }
-
-                //     actions("Drive, Get out");
-                //     break;
 
                 case "get out": /*
                 - Check if inside car. If true, get out of car
@@ -314,7 +250,7 @@ class Person
                         if (personalCars[insideCar].isInside)
                         {
                             personalCars[insideCar].GetOut(personalCars[insideCar].Doors[0]);
-                            actions("Cars, Personal");
+                            actions("Cars, Personal, Get in", player);
                         }
                     }
                     Console.WriteLine("You are not inside any car");
@@ -346,14 +282,14 @@ class Person
         }
     }
 
-    public void checkIfInsideCar()
+    public void checkIfInsideCar(Person player)
     {
         if (personalCars.Count > 0)
         {
             if (personalCars[insideCar].isInside == true)
             {
                 Console.WriteLine("You are inside a car");
-                actions("Personal, Drive, Get out");
+                actions("Personal, Drive, Get out", player);
             }
         }
     }
